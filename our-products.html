@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our products — offfscript</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Product section layout */
+    .product-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .product-layout.reverse { grid-template-columns: 1.2fr 1fr; }
+    .product-layout.reverse .product-media { order: -1; }
+
+    .product-tag-line {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .product-section h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .product-section p.lead {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-row .s-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .stat-row .s-lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* StoryDrop specific */
+    .storydrop-section {
+      background: var(--surface);
+    }
+
+    .how-it-works {
+      margin-top: 2.5rem;
+    }
+
+    .how-it-works h4 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+      line-height: 1;
+      padding-top: 0.1rem;
+    }
+
+    .step-body h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-body p {
+      font-size: 0.82rem;
+    }
+
+    /* Audience callout */
+    .audience-callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .audience-callout h4 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .audience-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .aud-stat .aud-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .aud-stat .aud-lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .product-layout,
+      .product-layout.reverse {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .product-layout.reverse .product-media { order: 0; }
+      .audience-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+
+    <!-- ── PAGE HERO ──────────────────────── -->
+    <div class="page-hero">
+      <div class="container">
+        <p class="label" style="margin-bottom: 0.75rem;">Our products</p>
+        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">Built for Boston.</h1>
+        <p style="max-width: 520px; margin-top: 1.25rem; font-size: 0.95rem;">Three products, one mission — helping people discover the best of Boston and New England.</p>
+      </div>
+    </div>
+
+    <!-- ── THE BOSTON CALENDAR ────────────── -->
+    <div id="tbc">
+      <div class="container">
+        <div class="product-section">
+          <div class="product-layout">
+            <div class="product-content">
+              <span class="product-tag-line">Web platform</span>
+              <h2>The Boston Calendar</h2>
+              <p class="lead">New England's most popular event discovery platform. We've been curating the best of Boston for over a decade — connecting hundreds of thousands of people with the city's events, experiences, and happenings every month.</p>
+
+              <div class="stat-row">
+                <div>
+                  <div class="s-num">250k</div>
+                  <div class="s-lbl">Active monthly users</div>
+                </div>
+                <div>
+                  <div class="s-num">18k</div>
+                  <div class="s-lbl">Daily impressions</div>
+                </div>
+                <div>
+                  <div class="s-num">20k</div>
+                  <div class="s-lbl">Avg page views per roundup</div>
+                </div>
+              </div>
+
+              <p style="font-size: 0.88rem; margin-bottom: 1.5rem;">Partners can reach TBC's highly engaged audience through native ads, featured listings, editorial roundups, and sponsored push notifications — all within the discovery context people trust.</p>
+              <a href="get-in-touch.html" class="btn btn-primary">Partner with us</a>
+            </div>
+            <div class="product-media">
+              <div class="img-ph r-16-9" style="margin-bottom: 1rem;">Insert The Boston Calendar website screenshot — desktop or mobile view here<br>(16:9)</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="img-ph r-9-16">Insert TBC mobile app screenshot here<br>(9:16)</div>
+                <div class="img-ph r-9-16">Insert TBC editorial roundup screenshot here<br>(9:16)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JOYRAFT ─────────────────────────── -->
+    <div id="joyraft" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="product-section" style="border-bottom: none;">
+          <div class="product-layout reverse">
+            <div class="product-content">
+              <span class="product-tag-line">iOS app</span>
+              <h2>Joyraft</h2>
+              <p class="lead">A social experience discovery app that connects Boston-area users with events, local recommendations, and friends' plans. Community-powered discovery with deep engagement.</p>
+
+              <div class="stat-row">
+                <div>
+                  <div class="s-num">12k</div>
+                  <div class="s-lbl">Weekly active users</div>
+                </div>
+                <div>
+                  <div class="s-num">10min</div>
+                  <div class="s-lbl">Average session length</div>
+                </div>
+                <div>
+                  <div class="s-num">500%</div>
+                  <div class="s-lbl">More event page views via native ads</div>
+                </div>
+              </div>
+
+              <p style="font-size: 0.88rem; margin-bottom: 1.5rem;">Joyraft's native ad placements put partner events in front of users actively looking for things to do — at the exact moment of discovery.</p>
+              <a href="get-in-touch.html" class="btn btn-primary">Partner with us</a>
+            </div>
+            <div class="product-media">
+              <div class="img-ph r-9-16" style="max-width: 320px; margin: 0 auto;">Insert Joyraft iOS app screenshot — home feed or event discovery view here<br>(9:16)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STORYDROP ───────────────────────── -->
+    <div id="storydrop" class="storydrop-section" style="border-top: none;">
+      <div class="container">
+        <div class="product-section" style="border-bottom: none;">
+          <div class="product-layout">
+            <div class="product-content">
+              <span class="product-tag-line">Self-serve advertising tool</span>
+              <h2>StoryDrop</h2>
+              <p class="lead">The fastest way to reach Boston's most engaged local audience. Post your brand directly to @thebostoncal's Instagram Stories — choose your date, upload your creative, and get in front of 325k+ followers.</p>
+
+              <div class="stat-row">
+                <div>
+                  <div class="s-num">325k+</div>
+                  <div class="s-lbl">@thebostoncal followers</div>
+                </div>
+                <div>
+                  <div class="s-num">5–25k+</div>
+                  <div class="s-lbl">Story impressions per frame</div>
+                </div>
+                <div>
+                  <div class="s-num">$200</div>
+                  <div class="s-lbl">Per story frame</div>
+                </div>
+              </div>
+
+              <div class="how-it-works">
+                <h4>How it works</h4>
+                <div class="steps">
+                  <div class="step">
+                    <div class="step-num">01</div>
+                    <div class="step-body">
+                      <h4>Choose your date</h4>
+                      <p>Select a run date that aligns with your event, launch, or campaign window.</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">02</div>
+                    <div class="step-body">
+                      <h4>Upload your creative</h4>
+                      <p>Submit your story frame — vertical video or static image. We post it.</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">03</div>
+                    <div class="step-body">
+                      <h4>Get your results</h4>
+                      <p>A performance report with reach, impressions, and engagement is delivered within 48 hours.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 2rem;">
+                <a href="https://www.thebostoncalendar.com/instagram-story" target="_blank" rel="noopener" class="btn btn-primary">Book a story frame</a>
+              </div>
+            </div>
+
+            <div class="product-media">
+              <div class="img-ph r-9-16" style="max-width: 300px; margin: 0 auto 1rem;">Insert StoryDrop mockup or @thebostoncal story example here<br>(9:16 — story format)</div>
+              <div class="audience-callout">
+                <h4>Who you're reaching</h4>
+                <div class="audience-stats">
+                  <div class="aud-stat">
+                    <div class="aud-num">75%</div>
+                    <div class="aud-lbl">Women</div>
+                  </div>
+                  <div class="aud-stat">
+                    <div class="aud-num">68%</div>
+                    <div class="aud-lbl">Ages 25–44</div>
+                  </div>
+                  <div class="aud-stat">
+                    <div class="aud-num">50%+</div>
+                    <div class="aud-lbl">Boston-based</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Let's partner up</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>

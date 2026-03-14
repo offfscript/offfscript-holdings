@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What we do — offfscript</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero p.intro {
+      max-width: 560px;
+      margin-top: 1.25rem;
+      font-size: 1rem;
+    }
+
+    /* Service list */
+    .service-list { margin-top: 1rem; }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .service-row-label {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .service-row-body p {
+      font-size: 0.9rem;
+      max-width: 540px;
+    }
+
+    /* How we're different */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .diff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .diff-card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .diff-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .diff-card p { font-size: 0.85rem; }
+
+    /* Partnerships */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .partner-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .partner-card h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .partner-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .partner-card p {
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    .partner-card ul {
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .partner-card ul li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .partner-card ul li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--muted-2);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .partner-price {
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+      .partner-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .service-row { grid-template-columns: 1fr; gap: 0.75rem; }
+      .diff-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+
+    <!-- ── PAGE HERO ──────────────────────── -->
+    <div class="page-hero">
+      <div class="container">
+        <p class="label" style="margin-bottom: 0.75rem;">What we do</p>
+        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">We listen first.</h1>
+        <p class="intro">Before a single brief is written, we take time to understand your goals, your audience, and what success actually looks like for you.</p>
+      </div>
+    </div>
+
+    <!-- ── SERVICES ───────────────────────── -->
+    <div class="container">
+      <div class="section">
+
+        <div class="section-head">
+          <p class="label">Our services</p>
+          <h2 class="g">What's in our toolkit</h2>
+        </div>
+
+        <div class="service-list">
+
+          <div class="service-row">
+            <div class="service-row-label">Storytelling</div>
+            <div class="service-row-body">
+              <p>We craft narratives that connect brands to the audiences who actually care. Stories that move people — not just impressions.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Creative strategy</div>
+            <div class="service-row-body">
+              <p>Campaign concepts built around your specific audience and goals — with a clear point of view from day one.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Content planning</div>
+            <div class="service-row-body">
+              <p>Intentional editorial calendars and content frameworks that keep campaigns consistent and on-message across channels.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Content production</div>
+            <div class="service-row-body">
+              <p>From copywriting to social video — we produce the work, not just the strategy. Deliverables that are publish-ready.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Graphic design</div>
+            <div class="service-row-body">
+              <p>Clean, purposeful visual design for ads, editorial, social, and everything in between.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Performance insights</div>
+            <div class="service-row-body">
+              <p>Post-campaign reports with real numbers — what worked, what didn't, and what we'd do differently next time.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HOW WE'RE DIFFERENT ────────────── -->
+    <div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section">
+          <div class="section-head">
+            <p class="label">Why it works</p>
+            <h2 class="g">Built different</h2>
+          </div>
+          <div class="diff-grid">
+
+            <div class="diff-card">
+              <h3>A decade of audience data</h3>
+              <p>We've run Boston's most popular event discovery platform for over ten years. That means proprietary learnings on how the region's audiences discover, decide, and engage — applied to every campaign we launch.</p>
+            </div>
+
+            <div class="diff-card">
+              <h3>Data-driven, always</h3>
+              <p>We don't guess. Every campaign strategy is informed by performance data across our owned platforms and past engagements. We leverage those learnings to sharpen every new brief.</p>
+            </div>
+
+            <div class="diff-card">
+              <h3>Thoughtfully AI-first</h3>
+              <p>We integrate AI throughout our production and optimization workflows — not as a gimmick, but as a multiplier that increases speed, quality, and outcomes for our clients.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PARTNERSHIP MODELS ─────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Ways to work with us</p>
+          <h2 class="g">Find your fit</h2>
+        </div>
+        <div class="partner-grid">
+
+          <div class="partner-card">
+            <h3>Ongoing partnership</h3>
+            <span class="partner-sub">Monthly retainer</span>
+            <p>For organizations that want consistent visibility, audience growth, and measurable results throughout the year.</p>
+            <p style="font-size: 0.82rem; margin-bottom: 0.75rem;">Best for: venues, neighborhoods, destination marketing organizations, recurring events, and brands with multiple activations.</p>
+            <ul>
+              <li>Monthly creative campaigns</li>
+              <li>Content production</li>
+              <li>Brand and communications consulting</li>
+              <li>Campaign insights and optimization</li>
+            </ul>
+            <p class="partner-price">Retainers typically range from $6k–$15k/month depending on scope.</p>
+          </div>
+
+          <div class="partner-card">
+            <h3>Creative campaign</h3>
+            <span class="partner-sub">Project-based</span>
+            <p>For organizations looking to drive awareness, attendance, or engagement around a specific moment, launch, or event.</p>
+            <p style="font-size: 0.82rem; margin-bottom: 0.75rem;">Best for: festivals, ticketed events, venue openings, seasonal programming, brand activations, and product launches.</p>
+            <ul>
+              <li>Campaign strategy and messaging</li>
+              <li>Multi-channel promotion across TBC &amp; Joyraft</li>
+              <li>Campaign insights and performance recap</li>
+            </ul>
+            <p class="partner-price">Campaigns typically range from $3k–$10k+ depending on scope.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Let's talk</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>

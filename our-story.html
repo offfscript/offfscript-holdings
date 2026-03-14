@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our story — offfscript</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .story-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .story-text p:last-child { margin-bottom: 0; }
+
+    .story-media {
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+
+    .brand-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      divide: 1px solid var(--border);
+    }
+
+    .brand-item {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .brand-item:last-child { border-right: none; }
+
+    .brand-logo-ph {
+      width: 72px;
+      height: 72px;
+    }
+
+    .brand-item h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+    }
+
+    .brand-item p { font-size: 0.85rem; }
+
+    @media (max-width: 900px) {
+      .story-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-media { position: static; }
+      .brand-grid { grid-template-columns: 1fr; }
+      .brand-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .brand-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+
+    <!-- ── PAGE HERO ──────────────────────── -->
+    <div class="page-hero">
+      <div class="container">
+        <p class="label" style="margin-bottom: 0.75rem;">Our story</p>
+        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">Born in Boston.</h1>
+      </div>
+    </div>
+
+    <!-- ── STORY ──────────────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="story-body">
+
+          <div class="story-text">
+            <p>Offscript Holdings is a Boston-based media and marketing company. We're the team behind The Boston Calendar — New England's most popular event discovery platform — and Joyraft, our social experience app.</p>
+            <p>Over a decade of building for Boston's audiences has given us something rare: real, proprietary data on how people discover and engage with local experiences. We know this audience because we built the platform they use every day.</p>
+            <p>We're digital storytellers and growth marketers. We help organizations across the region reach the right people, at the right moment, with the right story — and we measure everything.</p>
+            <p>Now we're taking those learnings beyond our own platforms and working with a select group of partners to do for their brands what we've done for Boston.</p>
+          </div>
+
+          <div class="story-media">
+            <div class="img-ph r-4-3" style="margin-bottom: 1rem;">Insert Offscript Holdings team photo or Boston skyline visual here<br>(4:3)</div>
+            <div class="img-ph r-16-9">Insert brand lifestyle image here<br>(16:9)</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── OUR BRANDS ─────────────────────── -->
+    <div class="brand-strip">
+      <div class="container" style="padding: 0;">
+        <div class="brand-grid">
+
+          <div class="brand-item">
+            <div class="img-ph r-1-1 brand-logo-ph">Insert The Boston Calendar logo here<br>(1:1)</div>
+            <div>
+              <h3>The Boston Calendar</h3>
+              <p>New England's most popular event discovery platform. 250k monthly users. Running for over a decade.</p>
+            </div>
+          </div>
+
+          <div class="brand-item">
+            <div class="img-ph r-1-1 brand-logo-ph">Insert Joyraft logo here<br>(1:1)</div>
+            <div>
+              <h3>Joyraft</h3>
+              <p>Social experience discovery iOS app. 12k weekly users, 10-minute average sessions.</p>
+            </div>
+          </div>
+
+          <div class="brand-item">
+            <div class="img-ph r-1-1 brand-logo-ph">Insert StoryDrop logo or icon here<br>(1:1)</div>
+            <div>
+              <h3>StoryDrop</h3>
+              <p>Self-serve Instagram story advertising to 325k+ engaged Bostonians. Built on @thebostoncal.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Work with us</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+        <a href="team.html" class="btn btn-outline">Meet the team</a>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>

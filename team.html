@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — offfscript</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .team-grid-full {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .member-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .member-info { padding: 0 0.1rem; }
+
+    .member-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .member-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-bio {
+      font-size: 0.82rem;
+      color: var(--muted-2);
+      line-height: 1.55;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid-full { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .team-grid-full { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+
+    <!-- ── PAGE HERO ──────────────────────── -->
+    <div class="page-hero">
+      <div class="container">
+        <p class="label" style="margin-bottom: 0.75rem;">Team</p>
+        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">The people<br>behind it.</h1>
+      </div>
+    </div>
+
+    <!-- ── TEAM GRID ──────────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="team-grid-full">
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Mimi headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Mimi</div>
+              <div class="member-role">Co-founder &amp; head of business development</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Sean headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Sean</div>
+              <div class="member-role">Co-founder</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Saurav headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Saurav</div>
+              <div class="member-role">Co-founder &amp; head of technology</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Yelena headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Yelena</div>
+              <div class="member-role">Content management &amp; editorial</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Nicole headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Nicole</div>
+              <div class="member-role">Creator</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Ren headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Ren</div>
+              <div class="member-role">Creator</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Chloe headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Chloe</div>
+              <div class="member-role">Creator</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <div class="img-ph r-1-1">Insert Manuel headshot here<br>(1:1 — square)</div>
+            </div>
+            <div class="member-info">
+              <div class="member-name">Manuel</div>
+              <div class="member-role">Head of tech, Joyraft iOS app</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Work with us</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>

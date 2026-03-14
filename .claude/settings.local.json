@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc \"/Users/yiseowl/Desktop/offscript_partner_deck_text.docx\" -t plain)",
+      "Read(//Users/yiseowl/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/a032796f-c89c-4030-a4d9-afd795d4d702/9554b614-e116-4a71-886d-cf2be8d6dcdb/skills/docx/**)",
+      "Bash(python scripts/office/unpack.py \"/Users/yiseowl/Desktop/offscript_partner_deck_text.docx\" /tmp/offscript_docx_unpacked/)",
+      "Bash(python3 scripts/office/unpack.py \"/Users/yiseowl/Desktop/offscript_partner_deck_text.docx\" /tmp/offscript_docx_unpacked/)",
+      "Read(//private/tmp/**)",
+      "Bash(cp \"/Users/yiseowl/Desktop/offscript_partner_deck_text.docx\" offscript.docx)",
+      "Bash(unzip -o offscript.docx word/document.xml -d offscript_extracted/)",
+      "WebFetch(domain:www.thebostoncalendar.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(vercel --version)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

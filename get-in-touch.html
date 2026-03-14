@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in touch — offfscript</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 3rem);
+    }
+
+    .contact-sidebar h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-lead {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      padding: 0.65rem 1.1rem;
+      transition: border-color 0.18s;
+    }
+
+    .contact-email:hover { border-color: var(--muted); }
+
+    .contact-email svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+    }
+
+    .contact-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .contact-detail {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-detail .label {
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .contact-detail p {
+      font-size: 0.9rem;
+    }
+
+    /* Form */
+    .contact-form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+    }
+
+    .contact-form-card h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .contact-sidebar { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+    <div class="container">
+      <div class="section">
+        <div class="contact-layout">
+
+          <!-- ── LEFT: Contact info ──────── -->
+          <div class="contact-sidebar">
+            <p class="label" style="margin-bottom: 0.75rem;">Get in touch</p>
+            <h1 class="g">Let's talk.</h1>
+            <p class="contact-lead">Reach out directly to Mimi — our co-founder and head of business development. She's your first point of contact for partnerships, campaigns, and everything in between.</p>
+
+            <a href="mailto:mimi@thebostoncalendar.com" class="contact-email">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 3.5A1.5 1.5 0 013 2h10a1.5 1.5 0 011.5 1.5v9A1.5 1.5 0 0113 14H3a1.5 1.5 0 01-1.5-1.5v-9zm1 0v.5l5.5 3.5 5.5-3.5v-.5a.5.5 0 00-.5-.5H3a.5.5 0 00-.5.5zm0 1.8v6.7a.5.5 0 00.5.5h10a.5.5 0 00.5-.5V5.3L8 8.5 2.5 5.3z"/></svg>
+              mimi@thebostoncalendar.com
+            </a>
+
+            <hr class="contact-divider" />
+
+            <div class="contact-detail">
+              <span class="label">Location</span>
+              <p>Boston, MA</p>
+            </div>
+
+            <div class="contact-detail">
+              <span class="label">Partnerships &amp; campaigns</span>
+              <p>partnerships@thebostoncalendar.com</p>
+            </div>
+
+          </div>
+
+          <!-- ── RIGHT: Form ─────────────── -->
+          <div>
+            <div class="contact-form-card">
+              <h3>Send us a message</h3>
+
+              <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" name="last_name" placeholder="Smith" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="you@yourorg.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="org">Organization</label>
+                  <input type="text" id="org" name="organization" placeholder="Your company or event" />
+                </div>
+
+                <div class="form-group">
+                  <label for="interest">What are you interested in?</label>
+                  <select id="interest" name="interest">
+                    <option value="" disabled selected>Select one</option>
+                    <option value="ongoing-partnership">Ongoing partnership (monthly retainer)</option>
+                    <option value="creative-campaign">Creative campaign (project-based)</option>
+                    <option value="storydrop">StoryDrop (Instagram story ad)</option>
+                    <option value="other">Other / not sure yet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Tell us more</label>
+                  <textarea id="message" name="message" placeholder="What's the goal? What's the timeline? Any details that would help."></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary">Send message</button>
+                  <p class="form-note">We'll get back to you within one business day.</p>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- /page -->
+</body>
+</html>
