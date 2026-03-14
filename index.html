@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>offfscript — marketing growth & digital product studio</title>
+  <meta name="description" content="Boston-based marketing growth and digital product studio. Digital storytellers and growth marketers." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-location span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-title {
+      font-size: clamp(5.5rem, 18vw, 16rem);
+      margin-bottom: 1.25rem;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      padding: 0.05em 0.14em 0.05em 0;
+      overflow: visible;
+      opacity: 0;
+      /* starts white — boring, status quo */
+      color: rgba(255, 255, 255, 0.62);
+      /* gradient applied by JS at the very end */
+    }
+
+    /* ── Individual letter spans (needed for scatter transforms) ── */
+    .hl {
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    /* ── Phase 3b word chunks ── */
+    .g-left, .g-right { display: inline-block; vertical-align: baseline; }
+    .g-extra { display: inline-block; vertical-align: baseline; white-space: nowrap; }
+
+    /* ── The extra 'f' — hidden until reassembly ── */
+    .hl-extra {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0;
+    }
+
+    /* ── Hero content entrance ── */
+    .hero-location {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .hero-descriptor {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .hero-actions {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .hero-location.in, .hero-descriptor.in, .hero-actions.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-descriptor {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ── Work preview ── */
+    .work-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .work-preview-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.18s;
+    }
+
+    .work-preview-card:hover { border-color: var(--border-2); }
+
+    .work-preview-card-body {
+      padding: 1.5rem;
+    }
+
+    .work-preview-card h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin: 0.5rem 0 0.35rem;
+      color: var(--text);
+    }
+
+    .work-preview-card p {
+      font-size: 0.85rem;
+    }
+
+    /* ── Services preview ── */
+    .services-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-chip {
+      border: 1px solid var(--border-2);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── StoryDrop callout ── */
+    .storydrop-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 4rem 0;
+    }
+
+    .storydrop-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .storydrop-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.75rem;
+    }
+
+    .storydrop-inner h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .storydrop-inner p {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .storydrop-stat {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .storydrop-stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .storydrop-stats { display: flex; gap: 2rem; margin-bottom: 2rem; }
+
+    /* ── Products preview ── */
+    .products-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .product-ph-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .product-ph-card-body {
+      padding: 1.5rem;
+    }
+
+    .product-ph-card h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      margin: 0.5rem 0 0.25rem;
+      color: var(--text);
+    }
+
+    .product-ph-card p { font-size: 0.85rem; }
+
+    @media (max-width: 900px) {
+      .work-preview-grid { grid-template-columns: 1fr 1fr; }
+      .products-preview { grid-template-columns: 1fr 1fr; }
+      .storydrop-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .work-preview-grid { grid-template-columns: 1fr; }
+      .products-preview { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js"></script>
+
+  <div class="page">
+
+    <!-- ── HERO ───────────────────────────── -->
+    <section class="hero">
+      <div class="hero-location">
+        <span class="dot-pulse"></span>
+        <span>Boston, MA</span>
+      </div>
+      <!-- each letter is its own span so JS can scatter + reassemble individually -->
+      <!-- .hl-extra is the 3rd 'f' — hidden until the reassembly phase -->
+      <h1 class="hero-title" aria-label="offfscript"><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl hl-extra"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span></h1>
+      <p class="hero-descriptor">Marketing growth &amp; digital product studio</p>
+      <div class="hero-actions">
+        <a href="what-we-do.html" class="btn btn-primary">What we do</a>
+        <a href="get-in-touch.html" class="btn btn-outline">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- ── STATS ──────────────────────────── -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">250k</div>
+        <div class="stat-label">Monthly website users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">700k+</div>
+        <div class="stat-label">Social followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">95k</div>
+        <div class="stat-label">Email subscribers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">37m+</div>
+        <div class="stat-label">Monthly social views</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years in Boston</div>
+      </div>
+    </div>
+
+    <!-- ── FEATURED WORK ──────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Featured work</p>
+          <h2 class="g">Results that<br>speak for themselves</h2>
+        </div>
+        <div class="work-preview-grid">
+
+          <!-- MBTA -->
+          <a href="case-studies.html#mbta" class="work-preview-card">
+            <div class="img-ph r-16-9">Insert MBTA case study hero graphic here<br>(16:9)</div>
+            <div class="work-preview-card-body">
+              <p class="label">Case study</p>
+              <h3>MBTA commuter rail</h3>
+              <p>1.3m impressions. 2–3x higher CTR than industry benchmarks.</p>
+            </div>
+          </a>
+
+          <!-- Silver Lining -->
+          <a href="case-studies.html#silver-lining" class="work-preview-card">
+            <div class="img-ph r-16-9">Insert Silver Lining Mentoring case study hero graphic here<br>(16:9)</div>
+            <div class="work-preview-card-body">
+              <p class="label">Case study</p>
+              <h3>Silver Lining Mentoring</h3>
+              <p>1m impressions. 10x increase in qualified mentor leads.</p>
+            </div>
+          </a>
+
+          <!-- Boston Landing -->
+          <a href="case-studies.html#boston-landing" class="work-preview-card">
+            <div class="img-ph r-16-9">Insert Boston Landing case study hero graphic here<br>(16:9)</div>
+            <div class="work-preview-card-body">
+              <p class="label">Case study</p>
+              <h3>Boston Landing</h3>
+              <p>4.2m impressions. 50% lower cost per impression vs. Meta.</p>
+            </div>
+          </a>
+
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="case-studies.html" class="btn btn-outline">See all work</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WHAT WE DO PREVIEW ─────────────── -->
+    <div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+              <p class="label" style="margin-bottom: 0.75rem;">What we do</p>
+              <h2 class="g">Digital storytellers.<br>Growth marketers.</h2>
+              <p style="margin-top: 1.25rem; font-size: 0.95rem;">We listen first. Then we build campaigns backed by a decade of proprietary Boston audience data — and sharpen every engagement with thoughtful AI.</p>
+              <div class="services-row">
+                <span class="service-chip">Storytelling</span>
+                <span class="service-chip">Creative strategy</span>
+                <span class="service-chip">Content production</span>
+                <span class="service-chip">Graphic design</span>
+                <span class="service-chip">Content planning</span>
+                <span class="service-chip">Performance insights</span>
+              </div>
+              <div style="margin-top: 2rem;">
+                <a href="what-we-do.html" class="btn btn-primary">Learn more</a>
+              </div>
+            </div>
+            <div class="img-ph r-4-3">Insert "what we do" editorial or campaign visual here<br>(4:3)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STORYDROP CALLOUT ───────────────── -->
+    <div class="storydrop-strip">
+      <div class="storydrop-inner">
+        <div>
+          <p class="storydrop-badge">New product</p>
+          <h2>StoryDrop</h2>
+          <p>Put your brand in front of 325k+ Bostonians through @thebostoncal Instagram stories. Choose your date, upload your creative, get your reach report — all in under five minutes.</p>
+          <div class="storydrop-stats">
+            <div>
+              <div class="storydrop-stat">25k+</div>
+              <div class="storydrop-stat-label">Story impressions per frame</div>
+            </div>
+            <div>
+              <div class="storydrop-stat">$200</div>
+              <div class="storydrop-stat-label">Per story frame</div>
+            </div>
+          </div>
+          <a href="our-products.html#storydrop" class="btn btn-primary">Learn more</a>
+        </div>
+        <div class="img-ph r-9-16" style="max-width: 280px; margin: 0 auto;">Insert StoryDrop product screenshot or mockup here<br>(9:16 — mobile/story format)</div>
+      </div>
+    </div>
+
+    <!-- ── OUR PRODUCTS ───────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Our products</p>
+          <h2 class="g">Built in Boston,<br>for Boston</h2>
+        </div>
+        <div class="products-preview">
+
+          <a href="our-products.html#tbc" class="product-ph-card">
+            <div class="img-ph r-16-9">Insert The Boston Calendar website screenshot here<br>(16:9)</div>
+            <div class="product-ph-card-body">
+              <p class="product-tag">Web platform</p>
+              <h3>The Boston Calendar</h3>
+              <p>New England's most popular event discovery platform. 250k monthly users.</p>
+            </div>
+          </a>
+
+          <a href="our-products.html#joyraft" class="product-ph-card">
+            <div class="img-ph r-16-9">Insert Joyraft iOS app screenshot here<br>(16:9)</div>
+            <div class="product-ph-card-body">
+              <p class="product-tag">iOS app</p>
+              <h3>Joyraft</h3>
+              <p>Social experience discovery app. 12k weekly users, 10-min avg sessions.</p>
+            </div>
+          </a>
+
+          <a href="our-products.html#storydrop" class="product-ph-card">
+            <div class="img-ph r-16-9">Insert StoryDrop product visual here<br>(16:9)</div>
+            <div class="product-ph-card-body">
+              <p class="product-tag">Self-serve tool</p>
+              <h3>StoryDrop</h3>
+              <p>Instagram story advertising to 325k+ engaged Bostonians. $200/frame.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Let's work together</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+    </div>
+
+  </div><!-- /page -->
+
+  <script>
+  /* ── Hero wordmark animation ────────────────────────────────────────
+     PHASE 1  type "offscript" in flat, boring white  (status quo)
+     PHASE 2  ink splatter — letters dissolve, paint drops scatter
+     PHASE 3  reform — drops converge back, letters reappear
+     PHASE 3b 3rd 'f' drops in from above; letters make room
+     PHASE 4  gradient floods in — offfscript in full color
+     PHASE 5  descriptor + buttons fade up
+  ───────────────────────────────────────────────────────────────────── */
+  document.fonts.ready.then(async function () {
+    const title      = document.querySelector('.hero-title');
+    const locEl      = document.querySelector('.hero-location');
+    const descriptor = document.querySelector('.hero-descriptor');
+    const actions    = document.querySelector('.hero-actions');
+    if (!title) return;
+
+    const allSpans  = Array.from(title.querySelectorAll('.hl'));
+    const extraSpan = title.querySelector('.hl-extra');
+    // letter spans excluding the hidden extra 'f'
+    const letters   = allSpans.filter(s => !s.classList.contains('hl-extra'));
+    const WORD      = ['o','f','f','s','c','r','i','p','t'];
+
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    // ────────────────────────────────────────────────────────────────────
+    // PHASE 1 — type "offscript" in flat white, letter by letter
+    // ────────────────────────────────────────────────────────────────────
+    await sleep(200);
+    locEl.classList.add('in');
+
+    await sleep(220);
+    title.style.opacity = '1';
+    await sleep(60);
+
+    for (let i = 0; i < letters.length; i++) {
+      letters[i].textContent = WORD[i];
+      await sleep(46);
+    }
+
+    // let the boring white "offscript" sit for a beat
+    await sleep(680);
+
+    // ────────────────────────────────────────────────────────────────────
+    // PHASE 2 — INK SPLATTER
+    // letters blur-fade out while B&W drops scatter, then drops shift to color
+    // ────────────────────────────────────────────────────────────────────
+    title.style.position = 'relative';
+
+    const BW_PALETTE    = ['#ffffff','#d0d0d0','#a0a0a0','#e8e8e8','#b8b8b8'];
+    const COLOR_PALETTE = ['#7B2BE8','#A431D8','#D8226D','#E84545','#FF6B35','#FF8B4A'];
+
+    // spawn B&W ink drops from each letter's center
+    const drops = [];
+    const titleRect = title.getBoundingClientRect();
+    letters.forEach((letter) => {
+      const lr = letter.getBoundingClientRect();
+      const cx = lr.left - titleRect.left + lr.width / 2;
+      const cy = lr.top  - titleRect.top  + lr.height / 2;
+
+      const dropCount = 6 + Math.floor(Math.random() * 5); // 6-10 per letter
+      for (let i = 0; i < dropCount; i++) {
+        const d = document.createElement('span');
+        const size = 4 + Math.random() * 18;
+        const bwColor    = BW_PALETTE[Math.floor(Math.random() * BW_PALETTE.length)];
+        const finalColor = COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
+        const angle = Math.random() * Math.PI * 2;
+        const dist  = 60 + Math.random() * 200;
+        const tx = Math.cos(angle) * dist;
+        const ty = Math.sin(angle) * dist + (Math.random() > 0.6 ? 40 : 0);
+
+        d.style.cssText = `
+          position:absolute; left:${cx}px; top:${cy}px;
+          width:${size}px; height:${size}px;
+          border-radius: ${Math.random() > 0.3 ? '50%' : '42% 58% 48% 52%'};
+          background-color:${bwColor};
+          opacity:0; transform:translate(-50%,-50%) scale(0);
+          pointer-events:none; z-index:2;
+        `;
+        title.appendChild(d);
+        drops.push({ el: d, tx, ty, finalColor });
+      }
+    });
+
+    // dissolve letters: blur + fade out
+    letters.forEach((l, i) => {
+      l.style.transition =
+        `opacity 0.32s ${i * 14}ms ease, filter 0.32s ${i * 14}ms ease`;
+      l.style.opacity = '0';
+      l.style.filter  = 'blur(8px)';
+    });
+
+    // simultaneously scatter B&W drops outward
+    drops.forEach((d, i) => {
+      requestAnimationFrame(() => {
+        d.el.style.transition =
+          `transform 0.52s ${i * 3}ms cubic-bezier(0.23,1,0.32,1),
+           opacity   0.3s  ${i * 3}ms ease`;
+        d.el.style.transform =
+          `translate(calc(-50% + ${d.tx}px), calc(-50% + ${d.ty}px)) scale(1)`;
+        d.el.style.opacity = '0.9';
+      });
+    });
+
+    await sleep(520);
+
+    // B&W → gradient color transition + subtle continued drift
+    drops.forEach(d => {
+      const dx = (Math.random() - 0.5) * 36;
+      const dy = (Math.random() - 0.5) * 20;
+      d.el.style.transition =
+        'transform 1.6s ease-in-out, background-color 0.8s ease, opacity 1.6s ease';
+      d.el.style.transform =
+        `translate(calc(-50% + ${d.tx + dx}px), calc(-50% + ${d.ty + dy}px)) scale(1)`;
+      d.el.style.backgroundColor = d.finalColor;
+      d.el.style.opacity = '0.75';
+    });
+
+    await sleep(700);
+
+    // ────────────────────────────────────────────────────────────────────
+    // PHASE 3 — REFORM
+    // Drops converge → quick dip → plain-text "offscript" (h1-level gradient,
+    // background-clip:text on the h1's own text = zero ascender clipping ever)
+    // ────────────────────────────────────────────────────────────────────
+
+    drops.forEach((d, i) => {
+      d.el.style.transition = `transform 0.55s ${i * 3}ms cubic-bezier(0.4,0,0.2,1)`;
+      d.el.style.transform  = 'translate(-50%,-50%) scale(0.85)';
+    });
+
+    await sleep(640);
+
+    // Dip while we rebuild
+    title.style.transition = 'opacity 0.07s ease';
+    title.style.opacity    = '0';
+    await sleep(80);
+
+    // Plain text "offscript" — h1-level background-clip:text works perfectly
+    // because the text is a direct text-node child of the h1 (not inside spans)
+    title.style.position             = '';
+    title.innerHTML                  = 'offscript';
+    title.style.background           = 'linear-gradient(90deg, #7B2BE8 0%, #D8226D 52%, #FF6B35 100%)';
+    title.style.webkitBackgroundClip = 'text';
+    title.style.backgroundClip       = 'text';
+    title.style.webkitTextFillColor  = 'transparent';
+    title.style.color                = 'transparent';
+
+    // Fade in — perfect gradient, no clipping possible
+    title.style.transition = 'opacity 0.22s ease';
+    title.style.opacity    = '1';
+
+    await sleep(820); // readable beat
+
+    // ────────────────────────────────────────────────────────────────────
+    // PHASE 3b — type the 3rd 'f' in, like placing a cursor between
+    // the 2nd f and s and pressing f in a word doc.
+    //
+    // The h1 already has gradient text as a plain text node.
+    // Changing textContent is instant and seamless — the word expands
+    // from center, the gradient re-renders across the full new text,
+    // no clipping, no layout shift, no DOM swap flicker.
+    // ────────────────────────────────────────────────────────────────────
+    title.textContent = 'offfscript';
+
+    await sleep(120);
+
+    // ────────────────────────────────────────────────────────────────────
+    // PHASE 5 — hero content fades in
+    // ────────────────────────────────────────────────────────────────────
+    descriptor.classList.add('in');
+    await sleep(130);
+    actions.classList.add('in');
+  });
+  </script>
+</body>
+</html>
