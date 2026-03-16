@@ -14,7 +14,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(vercel --version)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(vercel --yes)",
+      "Bash(npx vercel:*)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
