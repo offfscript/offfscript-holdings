@@ -1,7 +1,6 @@
 /* nav.js — inject shared navigation */
 (function () {
   const pages = [
-    { label: 'Home',         href: 'index.html' },
     { label: 'Case studies', href: 'case-studies.html' },
     { label: 'What we do',   href: 'what-we-do.html' },
     { label: 'Our story',    href: 'our-story.html' },
