@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>offfscript — marketing growth & digital product studio</title>
+  <title>offfscript, marketing growth & digital product studio</title>
   <meta name="description" content="Boston-based marketing growth and digital product studio. Digital storytellers and growth marketers." />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <style>
     /* ── Hero ── */
     .hero {
@@ -43,7 +43,7 @@
       padding: 0.05em 0.14em 0.05em 0;
       overflow: visible;
       opacity: 0;
-      /* starts white — boring, status quo */
+      /* starts white, boring, status quo */
       color: rgba(255, 255, 255, 0.62);
       /* gradient applied by JS at the very end */
     }
@@ -58,7 +58,7 @@
     .g-left, .g-right { display: inline-block; vertical-align: baseline; }
     .g-extra { display: inline-block; vertical-align: baseline; white-space: nowrap; }
 
-    /* ── The extra 'f' — hidden until reassembly ── */
+    /* ── The extra 'f', hidden until reassembly ── */
     .hl-extra {
       max-width: 0;
       overflow: hidden;
@@ -279,7 +279,7 @@
         <span>Boston, MA</span>
       </div>
       <!-- each letter is its own span so JS can scatter + reassemble individually -->
-      <!-- .hl-extra is the 3rd 'f' — hidden until the reassembly phase -->
+      <!-- .hl-extra is the 3rd 'f', hidden until the reassembly phase -->
       <h1 class="hero-title" aria-label="offfscript"><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl hl-extra"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span><span class="hl"></span></h1>
       <p class="hero-descriptor">Marketing growth &amp; digital product studio</p>
       <div class="hero-actions">
@@ -366,7 +366,7 @@
             <div>
               <p class="label" style="margin-bottom: 0.75rem;">What we do</p>
               <h2 class="g">Digital storytellers.<br>Growth marketers.</h2>
-              <p style="margin-top: 1.25rem; font-size: 0.95rem;">We listen first. Then we build campaigns backed by a decade of proprietary Boston audience data — and sharpen every engagement with thoughtful AI.</p>
+              <p style="margin-top: 1.25rem; font-size: 0.95rem;">We listen first. Then we build campaigns backed by a decade of proprietary Boston audience data, and sharpen every engagement with thoughtful AI.</p>
               <div class="services-row">
                 <span class="service-chip">Storytelling</span>
                 <span class="service-chip">Creative strategy</span>
@@ -391,7 +391,7 @@
         <div>
           <p class="storydrop-badge">New product</p>
           <h2>StoryDrop</h2>
-          <p>Put your brand in front of 325k+ Bostonians through @thebostoncal Instagram stories. Choose your date, upload your creative, get your reach report — all in under five minutes.</p>
+          <p>Put your brand in front of 325k+ Bostonians through @thebostoncal Instagram stories. Choose your date, upload your creative, get your reach report, all in under five minutes.</p>
           <div class="storydrop-stats">
             <div>
               <div class="storydrop-stat">25k+</div>
@@ -404,7 +404,7 @@
           </div>
           <a href="our-products.html#storydrop" class="btn btn-primary">Learn more</a>
         </div>
-        <div class="img-ph r-9-16" style="max-width: 280px; margin: 0 auto;">Insert StoryDrop product screenshot or mockup here<br>(9:16 — mobile/story format)</div>
+        <div class="img-ph r-9-16" style="max-width: 280px; margin: 0 auto;">Insert StoryDrop product screenshot or mockup here<br>(9:16, mobile/story format)</div>
       </div>
     </div>
 
@@ -460,10 +460,10 @@
   <script>
   /* ── Hero wordmark animation ────────────────────────────────────────
      PHASE 1  type "offscript" in flat, boring white  (status quo)
-     PHASE 2  ink splatter — letters dissolve, paint drops scatter
-     PHASE 3  reform — drops converge back, letters reappear
+     PHASE 2  ink splatter, letters dissolve, paint drops scatter
+     PHASE 3  reform, drops converge back, letters reappear
      PHASE 3b 3rd 'f' drops in from above; letters make room
-     PHASE 4  gradient floods in — offfscript in full color
+     PHASE 4  gradient floods in, offfscript in full color
      PHASE 5  descriptor + buttons fade up
   ───────────────────────────────────────────────────────────────────── */
   document.fonts.ready.then(async function () {
@@ -482,7 +482,7 @@
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
     // ────────────────────────────────────────────────────────────────────
-    // PHASE 1 — type "offscript" in flat white, letter by letter
+    // PHASE 1, type "offscript" in flat white, letter by letter
     // ────────────────────────────────────────────────────────────────────
     await sleep(200);
     locEl.classList.add('in');
@@ -500,7 +500,7 @@
     await sleep(680);
 
     // ────────────────────────────────────────────────────────────────────
-    // PHASE 2 — INK SPLATTER
+    // PHASE 2, INK SPLATTER
     // letters blur-fade out while B&W drops scatter, then drops shift to color
     // ────────────────────────────────────────────────────────────────────
     title.style.position = 'relative';
@@ -577,7 +577,7 @@
     await sleep(700);
 
     // ────────────────────────────────────────────────────────────────────
-    // PHASE 3 — REFORM
+    // PHASE 3, REFORM
     // Drops converge → quick dip → plain-text "offscript" (h1-level gradient,
     // background-clip:text on the h1's own text = zero ascender clipping ever)
     // ────────────────────────────────────────────────────────────────────
@@ -594,7 +594,7 @@
     title.style.opacity    = '0';
     await sleep(80);
 
-    // Plain text "offscript" — h1-level background-clip:text works perfectly
+    // Plain text "offscript", h1-level background-clip:text works perfectly
     // because the text is a direct text-node child of the h1 (not inside spans)
     title.style.position             = '';
     title.innerHTML                  = 'offscript';
@@ -604,18 +604,18 @@
     title.style.webkitTextFillColor  = 'transparent';
     title.style.color                = 'transparent';
 
-    // Fade in — perfect gradient, no clipping possible
+    // Fade in, perfect gradient, no clipping possible
     title.style.transition = 'opacity 0.22s ease';
     title.style.opacity    = '1';
 
     await sleep(820); // readable beat
 
     // ────────────────────────────────────────────────────────────────────
-    // PHASE 3b — type the 3rd 'f' in, like placing a cursor between
+    // PHASE 3b, type the 3rd 'f' in, like placing a cursor between
     // the 2nd f and s and pressing f in a word doc.
     //
     // The h1 already has gradient text as a plain text node.
-    // Changing textContent is instant and seamless — the word expands
+    // Changing textContent is instant and seamless, the word expands
     // from center, the gradient re-renders across the full new text,
     // no clipping, no layout shift, no DOM swap flicker.
     // ────────────────────────────────────────────────────────────────────
@@ -624,7 +624,7 @@
     await sleep(120);
 
     // ────────────────────────────────────────────────────────────────────
-    // PHASE 5 — hero content fades in
+    // PHASE 5, hero content fades in
     // ────────────────────────────────────────────────────────────────────
     descriptor.classList.add('in');
     await sleep(130);
