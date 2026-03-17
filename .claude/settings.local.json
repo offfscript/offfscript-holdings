@@ -19,7 +19,9 @@
       "Bash(npx vercel:*)",
       "Bash(python3 -c \":*)",
       "Bash(grep -l \"styles.css\" /Users/yiseowl/from-scratch-offfscript/*.html)",
-      "Bash(grep -rn \"—\\\\|&mdash;\\\\|&#8212;\" /Users/yiseowl/from-scratch-offfscript/*.html)"
+      "Bash(grep -rn \"—\\\\|&mdash;\\\\|&#8212;\" /Users/yiseowl/from-scratch-offfscript/*.html)",
+      "Bash(sed -i '' 's/styles\\\\.css?v=[0-9]*/styles.css?v=4/g' *.html)",
+      "Bash(grep -l \"styles.css\" *.html)"
     ]
   }
 }
