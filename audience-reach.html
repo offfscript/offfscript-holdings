@@ -141,21 +141,19 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
     }
-    /* Sizzle grid */
+    /* Sizzle grid — masonry via CSS columns */
     .sizzle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      align-items: start;
+      column-count: 3;
+      column-gap: 0.6rem;
     }
     .sizzle-item {
+      break-inside: avoid;
+      margin-bottom: 0.6rem;
       border-radius: var(--radius);
       overflow: hidden;
     }
-    .sizzle-item .img-ph {
-      border-radius: 0;
-      margin: 0;
-    }
+    .sizzle-item .img-ph { border-radius: 0; margin: 0; }
+    .sizzle-item video, .sizzle-item img { display: block; width: 100%; }
 
     @media (max-width: 900px) {
       .format-row { grid-template-columns: 1fr 1fr; }
@@ -165,7 +163,7 @@
       .secondary-grid { grid-template-columns: 1fr; }
       .format-row { grid-template-columns: 1fr; gap: 0.75rem; }
       .format-stat-num, .format-stat-label { text-align: left; }
-      .sizzle-grid { grid-template-columns: repeat(2, 1fr); }
+      .sizzle-grid { column-count: 2; }
     }
   </style>
 </head>
