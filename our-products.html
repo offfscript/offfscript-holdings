@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our products | offfscript</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=27" />
   <style>
     .page-hero {
       padding: 5rem 0 4rem;
@@ -69,7 +69,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1;
+      line-height: 1.2;
+      padding: 0.35em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
 
     .stat-row .s-lbl {
@@ -119,8 +122,10 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       flex-shrink: 0;
-      line-height: 1;
-      padding-top: 0.1rem;
+      line-height: 1.2;
+      padding: 0.35em 0.1em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
 
     .step-body h4 {
@@ -168,7 +173,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1;
+      line-height: 1.2;
+      padding: 0.2em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
     }
 
     .aud-stat .aud-lbl {
@@ -189,7 +197,7 @@
   </style>
 </head>
 <body>
-  <script src="nav.js"></script>
+  <script src="nav.js?v=7"></script>
 
   <div class="page">
 
@@ -197,8 +205,8 @@
     <div class="page-hero">
       <div class="container">
         <p class="label" style="margin-bottom: 0.75rem;">Our products</p>
-        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">Built for Boston.</h1>
-        <p style="max-width: 520px; margin-top: 1.25rem; font-size: 0.95rem;">Three products, one mission: helping people discover the best of Boston and New England.</p>
+        <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">We build what we wish existed.</h1>
+        <p style="max-width: 520px; margin-top: 1.25rem; font-size: 0.95rem;">Two discovery platforms and a creator monetization tool, built by a team that uses them every day.</p>
       </div>
     </div>
 
@@ -284,76 +292,57 @@
         <div class="product-section" style="border-bottom: none;">
           <div class="product-layout">
             <div class="product-content">
-              <span class="product-tag-line">Self-serve advertising tool</span>
+              <span class="product-tag-line">SaaS platform for creators</span>
               <h2>StoryDrop</h2>
-              <p class="lead">The fastest way to reach Boston's most engaged local audience. Post your brand directly to @thebostoncal's Instagram Stories, choose your date, upload your creative, and get in front of 325k+ followers.</p>
+              <p class="lead">StoryDrop lets Instagram creators monetize their stories by selling frames directly to brands. Your story inventory is always available for brands to book, no middleman, no DMs, no back-and-forth.</p>
+              <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.75rem;">We built it. We use it ourselves on @thebostoncal. Now any creator can run it.</p>
 
               <div class="stat-row">
                 <div>
-                  <div class="s-num">325k+</div>
-                  <div class="s-lbl">@thebostoncal followers</div>
+                  <div class="s-num">Self-serve</div>
+                  <div class="s-lbl">Booking for brands</div>
                 </div>
                 <div>
-                  <div class="s-num">5–25k+</div>
-                  <div class="s-lbl">Story impressions per frame</div>
-                </div>
-                <div>
-                  <div class="s-num">$200</div>
-                  <div class="s-lbl">Per story frame</div>
+                  <div class="s-num">You set</div>
+                  <div class="s-lbl">Your own price</div>
                 </div>
               </div>
 
               <div class="how-it-works">
-                <h4>How it works</h4>
+                <h4>How it works for creators</h4>
                 <div class="steps">
                   <div class="step">
                     <div class="step-num">01</div>
                     <div class="step-body">
-                      <h4>Choose your date</h4>
-                      <p>Select a run date that aligns with your event, launch, or campaign window.</p>
+                      <h4>Connect your account</h4>
+                      <p>Set your price and audience stats. Your story inventory is always on, always bookable.</p>
                     </div>
                   </div>
                   <div class="step">
                     <div class="step-num">02</div>
                     <div class="step-body">
-                      <h4>Upload your creative</h4>
-                      <p>Submit your story frame, vertical video or static image. We post it.</p>
+                      <h4>Brands book directly</h4>
+                      <p>Advertisers find your page, pick a date, upload their creative, and pay, without involving you until it's time to post.</p>
                     </div>
                   </div>
                   <div class="step">
                     <div class="step-num">03</div>
                     <div class="step-body">
-                      <h4>Get your results</h4>
-                      <p>A performance report with reach, impressions, and engagement is delivered within 48 hours.</p>
+                      <h4>Post and get paid</h4>
+                      <p>You post the frame to your story on the booked date. Payment lands in your account.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div style="margin-top: 2rem;">
-                <a href="https://www.thebostoncalendar.com/instagram-story" target="_blank" rel="noopener" class="btn btn-primary">Book a story frame</a>
+              <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                <a href="https://app.offfscript.com" target="_blank" rel="noopener" class="btn btn-primary">Go to StoryDrop ↗</a>
+                <a href="https://www.thebostoncalendar.com/instagram-story" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.82rem;">See an example ↗</a>
               </div>
             </div>
 
             <div class="product-media">
               <div class="img-ph r-9-16" style="max-width: 300px; margin: 0 auto 1rem;">Insert StoryDrop mockup or @thebostoncal story example here<br>(9:16, story format)</div>
-              <div class="audience-callout">
-                <h4>Who you're reaching</h4>
-                <div class="audience-stats">
-                  <div class="aud-stat">
-                    <div class="aud-num">75%</div>
-                    <div class="aud-lbl">Women</div>
-                  </div>
-                  <div class="aud-stat">
-                    <div class="aud-num">68%</div>
-                    <div class="aud-lbl">Ages 25–44</div>
-                  </div>
-                  <div class="aud-stat">
-                    <div class="aud-num">50%+</div>
-                    <div class="aud-lbl">Boston-based</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

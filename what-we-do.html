@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What we do | offfscript</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=27" />
   <style>
     .page-hero {
       padding: 5rem 0 4rem;
@@ -146,19 +146,127 @@
       padding-top: 1rem;
     }
 
+    /* Past partners */
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .logo-circle-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      width: 90px;
+    }
+    .logo-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px dashed var(--border-2);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+    .logo-circle-id {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      font-family: monospace;
+      line-height: 1;
+    }
+    .logo-circle-name {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* Sizzle grid */
+    .sizzle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      align-items: start;
+    }
+    .sizzle-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .sizzle-item .img-ph {
+      border-radius: 0;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .sizzle-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Ad formats */
+    .format-row {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+      display: grid;
+      grid-template-columns: 1.2fr 1.8fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .format-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .format-stat-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: #FF6B35;
+      line-height: 1.2;
+      text-align: right;
+    }
+    .format-stat-label {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 0.2rem;
+    }
+
     @media (max-width: 900px) {
       .diff-grid { grid-template-columns: 1fr 1fr; }
       .partner-grid { grid-template-columns: 1fr; }
+      .format-row { grid-template-columns: 1fr 1fr; }
+      .format-stat-num, .format-stat-label { text-align: left; }
     }
 
     @media (max-width: 640px) {
       .service-row { grid-template-columns: 1fr; gap: 0.75rem; }
       .diff-grid { grid-template-columns: 1fr; }
+      .format-row { grid-template-columns: 1fr; gap: 0.75rem; }
     }
   </style>
 </head>
 <body>
-  <script src="nav.js"></script>
+  <script src="nav.js?v=7"></script>
 
   <div class="page">
 
@@ -167,7 +275,7 @@
       <div class="container">
         <p class="label" style="margin-bottom: 0.75rem;">What we do</p>
         <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">We listen first.</h1>
-        <p class="intro">Before a single brief is written, we take time to understand your goals, your audience, and what success actually looks like for you.</p>
+        <p class="intro">Ten years of content marketing through The Boston Calendar taught us what actually works. We're results-driven to our core: bringing brands new customers, driving signups, ticket sales, registrations, and real foot traffic. Great content earns attention at the top of funnel and converts at the bottom. Before a single brief is written, we listen, because the right brief changes everything.</p>
       </div>
     </div>
 
@@ -177,7 +285,7 @@
 
         <div class="section-head">
           <p class="label">Our services</p>
-          <h2 class="g">What's in our toolkit</h2>
+          <h2 class="g">How we grow you</h2>
         </div>
 
         <div class="service-list">
@@ -197,16 +305,23 @@
           </div>
 
           <div class="service-row">
-            <div class="service-row-label">Content planning</div>
+            <div class="service-row-label">Owned media production</div>
             <div class="service-row-body">
-              <p>Intentional editorial calendars and content frameworks that keep campaigns consistent and on-message across channels.</p>
+              <p>We create compelling owned media for brands, editorial content, social campaigns, short-form video, and more. Content that earns attention, builds trust, and converts. Not just fills a calendar.</p>
             </div>
           </div>
 
           <div class="service-row">
-            <div class="service-row-label">Content production</div>
+            <div class="service-row-label">SEO</div>
             <div class="service-row-body">
-              <p>From copywriting to social video: we produce the work, not just the strategy. Deliverables that are publish-ready.</p>
+              <p>We've spent over a decade building thebostoncalendar.com into one of New England's highest-ranking local websites, competing for and winning on some of the region's most contested search terms. We bring that institutional SEO knowledge directly to partners: technical audits, content strategy, on-page optimization, and local search visibility that compounds over time.</p>
+            </div>
+          </div>
+
+          <div class="service-row">
+            <div class="service-row-label">Meta &amp; Google ads</div>
+            <div class="service-row-body">
+              <p>Paid social and search campaigns built by a team that manages real ad spend across our own platforms every day. From audience targeting and creative strategy to bid optimization and reporting, we run campaigns that convert, not just campaigns that spend.</p>
             </div>
           </div>
 
@@ -217,13 +332,28 @@
             </div>
           </div>
 
-          <div class="service-row">
-            <div class="service-row-label">Performance insights</div>
-            <div class="service-row-body">
-              <p>Post-campaign reports with real numbers: what worked, what didn't, and what we'd do differently next time.</p>
-            </div>
-          </div>
 
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SIZZLE GRID ───────────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">The work</p>
+          <h2 class="g">Content that moves people.</h2>
+        </div>
+        <div class="sizzle-grid">
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-WD-01">SIZZLE-WD-01 (9:16)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-02">SIZZLE-WD-02 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-03">SIZZLE-WD-03 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-04">SIZZLE-WD-04 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-05">SIZZLE-WD-05 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-WD-06">SIZZLE-WD-06 (9:16)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-07">SIZZLE-WD-07 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-WD-08">SIZZLE-WD-08 (9:16)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-WD-09">SIZZLE-WD-09 (4:5)</div></div>
         </div>
       </div>
     </div>
@@ -255,6 +385,98 @@
 
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ── AD FORMATS ────────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Ad formats</p>
+          <h2 class="g">Ways to partner.</h2>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Instagram Stories</div>
+          <p style="font-size: 0.875rem;">Full-screen story frames delivered through @thebostoncal, booked via StoryDrop, our creator monetization platform that lets any Instagram creator sell story frames to brands.</p>
+          <div>
+            <div class="format-stat-num">325k</div>
+            <div class="format-stat-label">Reach per story</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Push Notifications</div>
+          <p style="font-size: 0.875rem;">Direct push to Joyraft app subscribers. High-intent audience already in discovery mode.</p>
+          <div>
+            <div class="format-stat-num">30k</div>
+            <div class="format-stat-label">Subscribers / 500 avg clicks</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Instagram Reels</div>
+          <p style="font-size: 0.875rem;">Sponsored Reels integrated into @thebostoncal's high-performing short-form video content.</p>
+          <div>
+            <div class="format-stat-num">18k</div>
+            <div class="format-stat-label">Daily impressions</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Sponsored In-Feed Posts</div>
+          <p style="font-size: 0.875rem;">Brand-integrated social posts across TBC Instagram and Facebook, written and produced by our team.</p>
+          <div>
+            <div class="format-stat-num">700k+</div>
+            <div class="format-stat-label">Combined following</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">TBC Boosted Reels</div>
+          <p style="font-size: 0.875rem;">Partner content boosted through TBC's proven Reels engine for extended reach beyond our organic audience.</p>
+          <div>
+            <div class="format-stat-num">15m</div>
+            <div class="format-stat-label">Monthly Reels views</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Sponsored Email</div>
+          <p style="font-size: 0.875rem;">Dedicated placements in TBC's weekly newsletter to a highly engaged, opted-in subscriber base.</p>
+          <div>
+            <div class="format-stat-num">95k</div>
+            <div class="format-stat-label">Subscribers / 25k opens</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Boosted Events</div>
+          <p style="font-size: 0.875rem;">Promote your event on thebostoncalendar.com for dramatically increased visibility and ticket sales.</p>
+          <div>
+            <div class="format-stat-num">500%</div>
+            <div class="format-stat-label">More views (up to)</div>
+          </div>
+        </div>
+
+        <div class="format-row">
+          <div class="format-name">Editorial Roundups</div>
+          <p style="font-size: 0.875rem;">Featured placement in TBC editorial content. High-trust, organic-feeling integrations that drive real discovery.</p>
+          <div>
+            <div class="format-stat-num">20k</div>
+            <div class="format-stat-label">Avg page views</div>
+          </div>
+        </div>
+
+        <div class="format-row" style="border-bottom: 1px solid var(--border);">
+          <div class="format-name">Native App Ads</div>
+          <p style="font-size: 0.875rem;">In-app placements within Joyraft reaching engaged users actively planning their next experience.</p>
+          <div>
+            <div class="format-stat-num">12k</div>
+            <div class="format-stat-label">Weekly active users</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -294,6 +516,84 @@
             <p class="partner-price">Campaigns typically range from $3k–$10k+ depending on scope.</p>
           </div>
 
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PAST PARTNERS ──────────────────── -->
+    <div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section">
+          <div class="section-head" style="text-align: center;">
+            <p class="label">Past partners</p>
+            <h2 class="g">Trusted by brands<br>across New England.</h2>
+          </div>
+          <div class="logo-strip">
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-01">
+                <span class="logo-circle-id">LOGO-PP-01</span>
+              </div>
+              <div class="logo-circle-name">Red Bull</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-02">
+                <span class="logo-circle-id">LOGO-PP-02</span>
+              </div>
+              <div class="logo-circle-name">BlueSana</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-03">
+                <span class="logo-circle-id">LOGO-PP-03</span>
+              </div>
+              <div class="logo-circle-name">Lyft</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-04">
+                <span class="logo-circle-id">LOGO-PP-04</span>
+              </div>
+              <div class="logo-circle-name">Boston Bruins</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-05">
+                <span class="logo-circle-id">LOGO-PP-05</span>
+              </div>
+              <div class="logo-circle-name">Seaport</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-06">
+                <span class="logo-circle-id">LOGO-PP-06</span>
+              </div>
+              <div class="logo-circle-name">Nielsen</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-07">
+                <span class="logo-circle-id">LOGO-PP-07</span>
+              </div>
+              <div class="logo-circle-name">MBTA</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-08">
+                <span class="logo-circle-id">LOGO-PP-08</span>
+              </div>
+              <div class="logo-circle-name">Silver Lining Mentoring</div>
+            </div>
+
+            <div class="logo-circle-wrap">
+              <div class="logo-circle" id="LOGO-PP-09">
+                <span class="logo-circle-id">LOGO-PP-09</span>
+              </div>
+              <div class="logo-circle-name">Boston Landing</div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg:        #080808;
+  --bg:        #08080f;
   --surface:   #111111;
   --surface-2: #181818;
   --border:    #1f1f1f;
@@ -28,7 +28,7 @@
 
 /* Reset */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);
@@ -38,6 +38,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -50,6 +51,9 @@ button { cursor: pointer; font-family: inherit; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding: 0.4em 0;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ── Typography ────────────────────────────── */
@@ -57,15 +61,16 @@ h1, .display {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  line-height: 0.95;
+  line-height: 1.2;
   letter-spacing: 0.02em; /* tiny gap — characters never touch */
 }
 
 h2 {
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: 0.02em;
 }
 
@@ -106,6 +111,7 @@ nav {
 .nav-wordmark {
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
   font-size: 1.45rem;
   color: #ffffff;
   letter-spacing: 0.01em;
@@ -126,6 +132,60 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
+
+/* Get in touch CTA — desktop */
+.nav-links a.nav-cta {
+  background: var(--gradient);
+  color: #fff;
+  padding: 0.45em 1.1em;
+  border-radius: 100px;
+  transition: opacity 0.18s;
+}
+.nav-links a.nav-cta:hover { color: #fff; opacity: 0.85; }
+
+/* Get in touch CTA — mobile */
+.mobile-nav a.nav-cta {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* StoryDrop hanging tab */
+.storydrop-tab {
+  position: fixed;
+  top: var(--nav-h);
+  right: 2rem;
+  z-index: 199;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.45em 1em 0.5em;
+  background: var(--bg);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+.storydrop-tab:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,0.25);
+}
+@media (max-width: 768px) {
+  .storydrop-tab {
+    right: 1rem;
+    border-radius: 0 0 14px 14px;
+    font-size: 0.62rem;
+    padding: 0.35em 0.75em 0.4em;
+    letter-spacing: 0.04em;
+  }
+}
 
 /* Hamburger */
 .hamburger {
@@ -172,6 +232,7 @@ nav {
 .mobile-nav a {
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
   font-size: clamp(1.6rem, 6vw, 2.6rem);
   color: var(--muted);
   line-height: 1.2;
@@ -266,21 +327,19 @@ nav {
 
 /* ── Stats strip ─────────────────────────────── */
 .stats-strip {
-  background: var(--surface);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--border);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 3.5rem 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
 }
 
 .stat-item {
+  background: var(--surface);
   text-align: center;
-  padding: 1rem 3rem;
-  border-right: 1px solid var(--border);
+  padding: 3rem 1.5rem;
+  border: none;
 }
 
 .stat-item:last-child { border-right: none; }
@@ -293,7 +352,10 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.2em 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .stat-label {
@@ -400,12 +462,16 @@ nav {
 .impact-item .impact-num {
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
   font-size: 1.6rem;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.2em 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .impact-item .impact-label {
@@ -553,15 +619,25 @@ nav {
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  .stats-strip { gap: 0; }
-  .stat-item {
-    padding: 1rem 1.5rem;
-    border-right: none;
+  .stats-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background: var(--border);
+    padding: 0;
+    border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    width: 50%;
+    justify-content: flex-start;
+    align-items: stretch;
   }
-  .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
-  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-item {
+    flex: 0 0 calc(50% - 0.5px);
+    background: var(--bg);
+    padding: 2rem 1.25rem;
+    border: none;
+    box-sizing: border-box;
+    text-align: center;
+  }
 
   .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }

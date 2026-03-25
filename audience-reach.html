@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audience &amp; reach | offfscript</title>
+  <meta name="description" content="Direct access to New England's most engaged local audience, across web, app, social, and email. 700k+ followers, 37m+ monthly views." />
+  <link rel="stylesheet" href="styles.css?v=27" />
+  <style>
+    .channel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.18s;
+      display: flex;
+      flex-direction: column;
+    }
+    .channel-card:hover { border-color: var(--border-2); }
+    .channel-card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .channel-type {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .channel-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .channel-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .ch-stat-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      padding: 0.2em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    .ch-stat-label {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .audience-pct {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      padding: 0.2em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      margin-bottom: 0.35rem;
+    }
+    .audience-row {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+    }
+    .audience-row h3 {
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .format-row {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+      display: grid;
+      grid-template-columns: 1.2fr 1.8fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .format-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .format-stat-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: #FF6B35;
+      line-height: 1.2;
+      text-align: right;
+    }
+    .format-stat-label {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 0.2rem;
+    }
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .logo-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    /* Sizzle grid */
+    .sizzle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      align-items: start;
+    }
+    .sizzle-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .sizzle-item .img-ph {
+      border-radius: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .format-row { grid-template-columns: 1fr 1fr; }
+      .format-stat-num, .format-stat-label { text-align: left; }
+    }
+    @media (max-width: 768px) {
+      .secondary-grid { grid-template-columns: 1fr; }
+      .format-row { grid-template-columns: 1fr; gap: 0.75rem; }
+      .format-stat-num, .format-stat-label { text-align: left; }
+      .sizzle-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js?v=7"></script>
+
+  <div class="page">
+
+    <!-- ── PAGE HEADER ────────────────────── -->
+    <div class="page-hero" style="padding: 5rem 0 4rem; border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div>
+          <p class="label" style="margin-bottom: 1rem;">Our reach</p>
+          <h1 class="g" style="font-family: var(--font-display); font-style: italic; font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.95; margin-bottom: 1.5rem;">Where New England<br>pays attention.</h1>
+          <p style="max-width: 560px; font-size: 1.05rem;">Direct access to New England's most engaged local audience, across web, app, social, and email. Built over a decade, owned and operated by offfscript.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STATS STRIP ────────────────────── -->
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-num">700k+</div>
+        <div class="stat-label">Social followers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">37m+</div>
+        <div class="stat-label">Monthly views</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">250k</div>
+        <div class="stat-label">Monthly website visitors</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">170k</div>
+        <div class="stat-label">Email subscribers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100k</div>
+        <div class="stat-label">iOS downloads</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40k</div>
+        <div class="stat-label">Push notification subscribers</div>
+      </div>
+    </div>
+
+    <!-- ── PRIMARY CHANNELS ───────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Our channels</p>
+          <h2 class="g">Every channel.<br>One community.</h2>
+        </div>
+        <div class="grid-3">
+
+          <!-- TBC Web -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-01">IMG-AR-01, thebostoncalendar.com website screenshot or hero visual</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Web platform</p>
+              <p class="channel-name">The Boston Calendar</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">250k</div>
+                  <div class="ch-stat-label">Monthly users</div>
+                </div>
+                <div>
+                  <div class="ch-stat-num">18k</div>
+                  <div class="ch-stat-label">Daily impressions</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">New England's most popular event discovery platform. A decade of local content, trusted by hundreds of thousands of Bostonians every month.</p>
+            </div>
+          </div>
+
+          <!-- Joyraft App -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-02">IMG-AR-02, Joyraft iOS app screenshot</div>
+            <div class="channel-card-body">
+              <p class="channel-type">iOS app</p>
+              <p class="channel-name">Joyraft App</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">12k</div>
+                  <div class="ch-stat-label">Weekly users</div>
+                </div>
+                <div>
+                  <div class="ch-stat-num">10min</div>
+                  <div class="ch-stat-label">Avg session</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">Social experience discovery app for iOS. Users spend an average of 10 minutes per session exploring things to do in Boston and DC.</p>
+            </div>
+          </div>
+
+          <!-- @thebostoncal Instagram -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-03">IMG-AR-03, @thebostoncal Instagram profile or sample content</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Instagram</p>
+              <p class="channel-name">@thebostoncal</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">348k</div>
+                  <div class="ch-stat-label">Followers</div>
+                </div>
+                <div>
+                  <div class="ch-stat-num">16m</div>
+                  <div class="ch-stat-label">Monthly views</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">3.9m accounts reached per month. 15m monthly views on Reels. Boston's go-to Instagram for local events, food, and culture.</p>
+            </div>
+          </div>
+
+          <!-- TBC Facebook -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-04">IMG-AR-04, TBC Facebook page screenshot or sample content</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Facebook</p>
+              <p class="channel-name">TBC Facebook</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">351k</div>
+                  <div class="ch-stat-label">Followers</div>
+                </div>
+                <div>
+                  <div class="ch-stat-num">22m</div>
+                  <div class="ch-stat-label">Monthly views</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">55m views in 60 days. 2m monthly engagements. One of the most active local Facebook communities in New England.</p>
+            </div>
+          </div>
+
+          <!-- Email Newsletter -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-05">IMG-AR-05, TBC email newsletter sample or mockup</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Email newsletter</p>
+              <p class="channel-name">TBC Newsletter</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">95k</div>
+                  <div class="ch-stat-label">Subscribers</div>
+                </div>
+                <div>
+                  <div class="ch-stat-num">25k</div>
+                  <div class="ch-stat-label">Avg opens</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">A highly engaged subscriber list built over ten years. Weekly sends covering Boston events, culture, and partner offers.</p>
+            </div>
+          </div>
+
+          <!-- Joyraft.com -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-06">IMG-AR-06, Joyraft.com website screenshot</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Web platform</p>
+              <p class="channel-name">Joyraft.com</p>
+              <div class="channel-stats">
+                <div>
+                  <div class="ch-stat-num">2</div>
+                  <div class="ch-stat-label">Markets</div>
+                </div>
+              </div>
+              <p style="font-size: 0.85rem;">Experience discovery platform serving Boston and DC markets. Expanding the offfscript audience footprint beyond New England.</p>
+            </div>
+          </div>
+
+
+          <!-- @joyraft Instagram -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-07">IMG-AR-07, @joyraft Instagram profile or sample content (Boston)</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Instagram / Boston</p>
+              <p class="channel-name">@joyraft</p>
+              <p style="font-size: 0.85rem;">Joyraft's Boston Instagram presence. Curated local experiences for an engaged Boston-based audience.</p>
+            </div>
+          </div>
+
+          <!-- @joyraftdc Instagram -->
+          <div class="channel-card">
+            <div class="img-ph r-16-9" id="IMG-AR-08">IMG-AR-08, @joyraftdc Instagram profile or sample content (DC)</div>
+            <div class="channel-card-body">
+              <p class="channel-type">Instagram / Washington DC</p>
+              <p class="channel-name">@joyraftdc</p>
+              <p style="font-size: 0.85rem;">Joyraft's DC Instagram presence. Growing the offfscript audience in the nation's capital with the same local-first approach.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SIZZLE GRID ───────────────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">The content</p>
+          <h2 class="g">What viral looks like.</h2>
+        </div>
+        <div class="sizzle-grid">
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-01">SIZZLE-AR-01 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-AR-02">SIZZLE-AR-02 (9:16)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-03">SIZZLE-AR-03 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-AR-04">SIZZLE-AR-04 (9:16)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-05">SIZZLE-AR-05 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-06">SIZZLE-AR-06 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-07">SIZZLE-AR-07 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-4-5" id="SIZZLE-AR-08">SIZZLE-AR-08 (4:5)</div></div>
+          <div class="sizzle-item"><div class="img-ph r-9-16" id="SIZZLE-AR-09">SIZZLE-AR-09 (9:16)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AUDIENCE PROFILE ───────────────── -->
+    <div class="container">
+      <div class="section">
+        <div class="section-head">
+          <p class="label">Audience profile</p>
+          <h2 class="g">Who we reach.</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;">
+
+          <div>
+            <div class="audience-row">
+              <div class="audience-pct">50%+</div>
+              <h3>Boston-based</h3>
+              <p style="font-size: 0.875rem;">The majority of our audience is located in the Boston metro area, making every campaign hyper-local by default.</p>
+            </div>
+            <div class="audience-row">
+              <div class="audience-pct">68%</div>
+              <h3>Ages 25–44</h3>
+              <p style="font-size: 0.875rem;">Our core audience skews toward young professionals, active, affluent, and highly engaged with local culture and experiences.</p>
+            </div>
+            <div class="audience-row" style="border-bottom: 1px solid var(--border);">
+              <div class="audience-pct">75%</div>
+              <h3>Women</h3>
+              <p style="font-size: 0.875rem;">Three quarters of our audience identify as women, a key demographic for consumer brands, wellness, dining, and experiences.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="img-ph r-4-3" id="IMG-AR-09">IMG-AR-09, Audience profile visual or lifestyle photo showing Boston community (4:3)</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Work with us</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+        <a href="case-studies.html" class="btn btn-outline">See case studies</a>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>

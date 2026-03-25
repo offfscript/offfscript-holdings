@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>offfscript, marketing growth & digital product studio</title>
   <meta name="description" content="Boston-based marketing growth and digital product studio. Digital storytellers and growth marketers." />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=27" />
   <style>
     /* ── Hero ── */
     .hero {
@@ -103,161 +103,142 @@
       justify-content: center;
     }
 
-    /* ── Work preview ── */
-    .work-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+    /* ── Pages index ── */
+    .pages-index { padding: 2rem 0 0; }
 
-    .work-preview-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.18s;
-    }
-
-    .work-preview-card:hover { border-color: var(--border-2); }
-
-    .work-preview-card-body {
-      padding: 1.5rem;
-    }
-
-    .work-preview-card h3 {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.5rem;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-      margin: 0.5rem 0 0.35rem;
-      color: var(--text);
-    }
-
-    .work-preview-card p {
-      font-size: 0.85rem;
-    }
-
-    /* ── Services preview ── */
-    .services-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-
-    .service-chip {
-      border: 1px solid var(--border-2);
-      border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* ── StoryDrop callout ── */
-    .storydrop-strip {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      padding: 4rem 0;
-    }
-
-    .storydrop-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 2rem;
+    .page-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+      color: inherit;
+      text-decoration: none;
       align-items: center;
     }
 
-    .storydrop-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .page-row:last-child { border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+
+    .page-row-label {
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--muted);
       margin-bottom: 0.75rem;
     }
 
-    .storydrop-inner h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
-    .storydrop-inner p {
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .storydrop-stat {
+    .page-row-title {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 2rem;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1;
+      padding: 0.2em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      margin-bottom: 1.25rem;
     }
 
-    .storydrop-stat-label {
-      font-size: 0.75rem;
+    .page-row-left p {
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+      max-width: 420px;
       color: var(--muted);
-      margin-top: 0.2rem;
+      line-height: 1.7;
     }
 
-    .storydrop-stats { display: flex; gap: 2rem; margin-bottom: 2rem; }
-
-    /* ── Products preview ── */
-    .products-preview {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .product-ph-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .product-ph-card-body {
-      padding: 1.5rem;
-    }
-
-    .product-ph-card h3 {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.4rem;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-      margin: 0.5rem 0 0.25rem;
+    .page-row-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--text);
     }
 
-    .product-ph-card p { font-size: 0.85rem; }
+    .page-row-arrow {
+      display: inline-block;
+      transition: transform 0.18s;
+    }
+
+    .page-row:hover .page-row-arrow { transform: translate(3px, -3px); }
+
+    .page-row-img { border-radius: var(--radius); overflow: hidden; }
+
+    /* Brands we work with — compact logo row in What we do section */
+    .brands-row {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .brands-row-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 1rem;
+    }
+    .brands-logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px dashed var(--border-2);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+    .brand-logo-id {
+      font-size: 0.42rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      font-family: monospace;
+      line-height: 1;
+      text-align: center;
+    }
 
     @media (max-width: 900px) {
-      .work-preview-grid { grid-template-columns: 1fr 1fr; }
-      .products-preview { grid-template-columns: 1fr 1fr; }
-      .storydrop-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .page-row { gap: 3rem; }
+    }
+
+    .page-row-img-mobile { display: none; border-radius: var(--radius); overflow: hidden; margin: 1.25rem 0; }
+
+    @media (max-width: 768px) {
+      .page-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 3rem 0;
+      }
+      .page-row-left p { max-width: 100%; }
+      .page-row-img { display: none; }
+      .page-row-img-mobile { display: block; }
     }
 
     @media (max-width: 640px) {
-      .work-preview-grid { grid-template-columns: 1fr; }
-      .products-preview { grid-template-columns: 1fr; }
       .hero {
         justify-content: flex-start;
         padding-top: 12vh;
@@ -268,7 +249,7 @@
   </style>
 </head>
 <body>
-  <script src="nav.js"></script>
+  <script src="nav.js?v=7"></script>
 
   <div class="page">
 
@@ -288,163 +269,102 @@
       </div>
     </section>
 
-    <!-- ── STATS ──────────────────────────── -->
-    <div class="stats-strip">
-      <div class="stat-item">
-        <div class="stat-num">250k</div>
-        <div class="stat-label">Monthly website users</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">700k+</div>
-        <div class="stat-label">Social followers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">95k</div>
-        <div class="stat-label">Email subscribers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">37m+</div>
-        <div class="stat-label">Monthly social views</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Years in Boston</div>
-      </div>
-    </div>
-
-    <!-- ── FEATURED WORK ──────────────────── -->
+    <!-- ── PAGES INDEX ──────────────────────────── -->
     <div class="container">
-      <div class="section">
-        <div class="section-head">
-          <p class="label">Featured work</p>
-          <h2 class="g">Results that<br>speak for themselves</h2>
-        </div>
-        <div class="work-preview-grid">
+      <div class="pages-index">
 
-          <!-- MBTA -->
-          <a href="case-studies.html#mbta" class="work-preview-card">
-            <div class="img-ph r-16-9">Insert MBTA case study hero graphic here<br>(16:9)</div>
-            <div class="work-preview-card-body">
-              <p class="label">Case study</p>
-              <h3>MBTA commuter rail</h3>
-              <p>1.3m impressions. 2–3x higher CTR than industry benchmarks.</p>
-            </div>
-          </a>
-
-          <!-- Silver Lining -->
-          <a href="case-studies.html#silver-lining" class="work-preview-card">
-            <div class="img-ph r-16-9">Insert Silver Lining Mentoring case study hero graphic here<br>(16:9)</div>
-            <div class="work-preview-card-body">
-              <p class="label">Case study</p>
-              <h3>Silver Lining Mentoring</h3>
-              <p>1m impressions. 10x increase in qualified mentor leads.</p>
-            </div>
-          </a>
-
-          <!-- Boston Landing -->
-          <a href="case-studies.html#boston-landing" class="work-preview-card">
-            <div class="img-ph r-16-9">Insert Boston Landing case study hero graphic here<br>(16:9)</div>
-            <div class="work-preview-card-body">
-              <p class="label">Case study</p>
-              <h3>Boston Landing</h3>
-              <p>4.2m impressions. 50% lower cost per impression vs. Meta.</p>
-            </div>
-          </a>
-
-        </div>
-        <div style="margin-top: 2rem;">
-          <a href="case-studies.html" class="btn btn-outline">See all work</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── WHAT WE DO PREVIEW ─────────────── -->
-    <div style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-      <div class="container">
-        <div class="section">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-            <div>
-              <p class="label" style="margin-bottom: 0.75rem;">What we do</p>
-              <h2 class="g">Digital storytellers.<br>Growth marketers.</h2>
-              <p style="margin-top: 1.25rem; font-size: 0.95rem;">We listen first. Then we build campaigns backed by a decade of proprietary Boston audience data, and sharpen every engagement with thoughtful AI.</p>
-              <div class="services-row">
-                <span class="service-chip">Storytelling</span>
-                <span class="service-chip">Creative strategy</span>
-                <span class="service-chip">Content production</span>
-                <span class="service-chip">Graphic design</span>
-                <span class="service-chip">Content planning</span>
-                <span class="service-chip">Performance insights</span>
-              </div>
-              <div style="margin-top: 2rem;">
-                <a href="what-we-do.html" class="btn btn-primary">Learn more</a>
+        <a href="what-we-do.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">What we do</p>
+            <div class="page-row-title">Results-driven.<br>Content-first.</div>
+            <div class="page-row-img-mobile"><div class="img-ph r-4-3">IMG-HP-01, What we do visual (4:3)</div></div>
+            <p>Ten years of content marketing through The Boston Calendar taught us what actually works. We bring brands new customers, drive signups, ticket sales, and real foot traffic.</p>
+            <span class="page-row-link">Go to What we do <span class="page-row-arrow">↗</span></span>
+            <div class="brands-row">
+              <p class="brands-row-label">Brands we work with</p>
+              <div class="brands-logo-strip">
+                <div class="brand-logo" id="LOGO-PP-01"><span class="brand-logo-id">PP-01<br>Red Bull</span></div>
+                <div class="brand-logo" id="LOGO-PP-02"><span class="brand-logo-id">PP-02<br>BlueSana</span></div>
+                <div class="brand-logo" id="LOGO-PP-03"><span class="brand-logo-id">PP-03<br>Lyft</span></div>
+                <div class="brand-logo" id="LOGO-PP-04"><span class="brand-logo-id">PP-04<br>Bruins</span></div>
+                <div class="brand-logo" id="LOGO-PP-05"><span class="brand-logo-id">PP-05<br>Seaport</span></div>
+                <div class="brand-logo" id="LOGO-PP-06"><span class="brand-logo-id">PP-06<br>Nielsen</span></div>
+                <div class="brand-logo" id="LOGO-PP-07"><span class="brand-logo-id">PP-07<br>MBTA</span></div>
+                <div class="brand-logo" id="LOGO-PP-08"><span class="brand-logo-id">PP-08<br>Silver Lining</span></div>
+                <div class="brand-logo" id="LOGO-PP-09"><span class="brand-logo-id">PP-09<br>Boston Landing</span></div>
               </div>
             </div>
-            <div class="img-ph r-4-3">Insert "what we do" editorial or campaign visual here<br>(4:3)</div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── STORYDROP CALLOUT ───────────────── -->
-    <div class="storydrop-strip">
-      <div class="storydrop-inner">
-        <div>
-          <p class="storydrop-badge">New product</p>
-          <h2>StoryDrop</h2>
-          <p>Put your brand in front of 325k+ Bostonians through @thebostoncal Instagram stories. Choose your date, upload your creative, get your reach report, all in under five minutes.</p>
-          <div class="storydrop-stats">
-            <div>
-              <div class="storydrop-stat">25k+</div>
-              <div class="storydrop-stat-label">Story impressions per frame</div>
-            </div>
-            <div>
-              <div class="storydrop-stat">$200</div>
-              <div class="storydrop-stat-label">Per story frame</div>
-            </div>
+          <div class="page-row-img">
+            <div class="img-ph r-4-3" id="IMG-HP-01">IMG-HP-01, What we do visual (4:3)</div>
           </div>
-          <a href="our-products.html#storydrop" class="btn btn-primary">Learn more</a>
-        </div>
-        <div class="img-ph r-9-16" style="max-width: 280px; margin: 0 auto;">Insert StoryDrop product screenshot or mockup here<br>(9:16, mobile/story format)</div>
-      </div>
-    </div>
+        </a>
 
-    <!-- ── OUR PRODUCTS ───────────────────── -->
-    <div class="container">
-      <div class="section">
-        <div class="section-head">
-          <p class="label">Our products</p>
-          <h2 class="g">Built in Boston,<br>for Boston</h2>
-        </div>
-        <div class="products-preview">
+        <a href="audience-reach.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">Audience &amp; reach</p>
+            <div class="page-row-title">Where New England<br>pays attention.</div>
+            <div class="page-row-img-mobile"><img src="images/audience-reach-hero.jpg" alt="The Boston Calendar audience reach" style="width:100%;display:block;"></div>
+            <p>700k+ followers. 37m+ monthly views. Direct access to New England's most engaged local audience across web, app, social, and email.</p>
+            <span class="page-row-link">Go to Audience &amp; reach <span class="page-row-arrow">↗</span></span>
+          </div>
+          <div class="page-row-img">
+            <img src="images/audience-reach-hero.jpg" alt="The Boston Calendar audience reach" style="width:100%;border-radius:var(--radius);display:block;">
+          </div>
+        </a>
 
-          <a href="our-products.html#tbc" class="product-ph-card">
-            <div class="img-ph r-16-9">Insert The Boston Calendar website screenshot here<br>(16:9)</div>
-            <div class="product-ph-card-body">
-              <p class="product-tag">Web platform</p>
-              <h3>The Boston Calendar</h3>
-              <p>New England's most popular event discovery platform. 250k monthly users.</p>
-            </div>
-          </a>
+        <a href="case-studies.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">Case studies</p>
+            <div class="page-row-title">Results that<br>speak for themselves.</div>
+            <div class="page-row-img-mobile"><div class="img-ph r-4-3">IMG-HP-03, Case studies visual (4:3)</div></div>
+            <p>MBTA, Silver Lining Mentoring, Boston Landing. Multi-channel campaigns that drove measurable results.</p>
+            <span class="page-row-link">Go to Case studies <span class="page-row-arrow">↗</span></span>
+          </div>
+          <div class="page-row-img">
+            <div class="img-ph r-4-3" id="IMG-HP-03">IMG-HP-03, Case studies visual (4:3)</div>
+          </div>
+        </a>
 
-          <a href="our-products.html#joyraft" class="product-ph-card">
-            <div class="img-ph r-16-9">Insert Joyraft iOS app screenshot here<br>(16:9)</div>
-            <div class="product-ph-card-body">
-              <p class="product-tag">iOS app</p>
-              <h3>Joyraft</h3>
-              <p>Social experience discovery app. 12k weekly users, 10-min avg sessions.</p>
-            </div>
-          </a>
+        <a href="our-products.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">Our products</p>
+            <div class="page-row-title">We build what we<br>wish existed.</div>
+            <div class="page-row-img-mobile"><div class="img-ph r-4-3">IMG-HP-04, Our products visual (4:3)</div></div>
+            <p>Two discovery platforms and a creator monetization tool, built by a team that uses them every day. The Boston Calendar, Joyraft, and StoryDrop.</p>
+            <span class="page-row-link">Go to Our products <span class="page-row-arrow">↗</span></span>
+          </div>
+          <div class="page-row-img">
+            <div class="img-ph r-4-3" id="IMG-HP-04">IMG-HP-04, Our products visual (4:3)</div>
+          </div>
+        </a>
 
-          <a href="our-products.html#storydrop" class="product-ph-card">
-            <div class="img-ph r-16-9">Insert StoryDrop product visual here<br>(16:9)</div>
-            <div class="product-ph-card-body">
-              <p class="product-tag">Self-serve tool</p>
-              <h3>StoryDrop</h3>
-              <p>Instagram story advertising to 325k+ engaged Bostonians. $200/frame.</p>
-            </div>
-          </a>
+        <a href="our-story.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">Our story</p>
+            <div class="page-row-title">Ten years of<br>building Boston.</div>
+            <div class="page-row-img-mobile"><div class="img-ph r-4-3">IMG-HP-05, Our story visual (4:3)</div></div>
+            <p>We started as a scrappy event calendar. We grew into a full-stack media and marketing company. Here's how.</p>
+            <span class="page-row-link">Go to Our story <span class="page-row-arrow">↗</span></span>
+          </div>
+          <div class="page-row-img">
+            <div class="img-ph r-4-3" id="IMG-HP-05">IMG-HP-05, Our story visual (4:3)</div>
+          </div>
+        </a>
 
-        </div>
+        <a href="team.html" class="page-row">
+          <div class="page-row-left">
+            <p class="page-row-label">Team</p>
+            <div class="page-row-title">The people<br>behind the work.</div>
+            <div class="page-row-img-mobile"><div class="img-ph r-4-3">IMG-HP-06, Team visual (4:3)</div></div>
+            <p>Storytellers, marketers, creators, and builders. A focused team with deep Boston roots.</p>
+            <span class="page-row-link">Go to Team <span class="page-row-arrow">↗</span></span>
+          </div>
+          <div class="page-row-img">
+            <div class="img-ph r-4-3" id="IMG-HP-06">IMG-HP-06, Team visual (4:3)</div>
+          </div>
+        </a>
+
       </div>
     </div>
 
