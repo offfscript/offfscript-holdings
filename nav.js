@@ -30,7 +30,7 @@
         <span></span><span></span><span></span>
       </button>
     </nav>
-    ${isHome ? '<a href="https://offfscript-app.vercel.app/" target="_blank" rel="noopener" class="storydrop-tab">Go to StoryDrop ↗</a>' : ''}
+    ${isHome ? '<a href="https://app.offfscript.com/" target="_blank" rel="noopener" class="storydrop-tab">Go to StoryDrop ↗</a>' : ''}
     <div class="mobile-nav" id="js-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
       ${mobileLinks}
     </div>
