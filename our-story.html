@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our story | offfscript</title>
+  <title>About us | offfscript</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css?v=27" />
   <style>
@@ -42,7 +42,6 @@
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      divide: 1px solid var(--border);
     }
 
     .brand-item {
@@ -72,12 +71,62 @@
 
     .brand-item p { font-size: 0.85rem; }
 
+    /* Team */
+    .team-grid-full {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .member-photo {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .member-info { padding: 0 0.1rem; }
+
+    .member-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .member-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-bio {
+      font-size: 0.82rem;
+      color: var(--muted-2);
+      line-height: 1.55;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid-full { grid-template-columns: repeat(3, 1fr); }
+    }
+
     @media (max-width: 900px) {
       .story-body { grid-template-columns: 1fr; gap: 2.5rem; }
       .story-media { position: static; }
       .brand-grid { grid-template-columns: 1fr; }
       .brand-item { border-right: none; border-bottom: 1px solid var(--border); }
       .brand-item:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 700px) {
+      .team-grid-full { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -89,7 +138,7 @@
     <!-- ── PAGE HERO ──────────────────────── -->
     <div class="page-hero">
       <div class="container">
-        <p class="label" style="margin-bottom: 0.75rem;">Our story</p>
+        <p class="label" style="margin-bottom: 0.75rem;">About us</p>
         <h1 class="g" style="font-size: clamp(3.5rem, 8vw, 7rem); letter-spacing: 0.02em;">Born in Boston.</h1>
       </div>
     </div>
@@ -115,32 +164,110 @@
       </div>
     </div>
 
-    <!-- ── OUR BRANDS ─────────────────────── -->
-    <div class="brand-strip">
-      <div class="container" style="padding: 0;">
-        <div class="brand-grid">
 
-          <div class="brand-item">
-            <div class="img-ph r-1-1 brand-logo-ph">Insert The Boston Calendar logo here<br>(1:1)</div>
-            <div>
-              <h3>The Boston Calendar</h3>
-              <p>New England's most popular event discovery platform. 250k monthly users. Running for over a decade.</p>
+    <!-- ── TEAM ──────────────────────────── -->
+    <div class="container" id="team">
+      <div class="section">
+        <p class="label" style="margin-bottom: 0.75rem;">Team</p>
+        <h2 class="g" style="font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: 0.02em; margin-bottom: 3rem;">The people<br>behind it.</h2>
+        <div class="team-grid-full">
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/mimi.jpg" alt="Mimi" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Mimi</div>
+              <div class="member-role">Co-founder &amp; head of business development</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
             </div>
           </div>
 
-          <div class="brand-item">
-            <div class="img-ph r-1-1 brand-logo-ph">Insert Joyraft logo here<br>(1:1)</div>
-            <div>
-              <h3>Joyraft</h3>
-              <p>Social experience discovery iOS app. 12k weekly users, 10-minute average sessions.</p>
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/sean.jpg" alt="Sean" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Sean</div>
+              <div class="member-role">Co-founder</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
             </div>
           </div>
 
-          <div class="brand-item">
-            <div class="img-ph r-1-1 brand-logo-ph">Insert StoryDrop logo or icon here<br>(1:1)</div>
-            <div>
-              <h3>StoryDrop</h3>
-              <p>A SaaS platform that lets Instagram creators sell story frames to brands. Built by us, used by @thebostoncal, available to any creator. <a href="https://app.offfscript.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">app.offfscript.com ↗</a></p>
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/saurav.png" alt="Saurav" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Saurav</div>
+              <div class="member-role">Co-founder &amp; head of technology</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/yelena.jpg" alt="Yelena" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Yelena</div>
+              <div class="member-role">Content management &amp; editorial</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/nicole.png" alt="Nicole Rosania" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Nicole Rosania</div>
+              <div class="member-role">Creator, The Abroad Blog</div>
+              <p class="member-bio">Travel blogger and content creator based in Boston. She's covered 6 continents and all 50 states, and holds an MBA in Marketing from the College of Charleston. When she's not traveling, she's finding the best coffee shops and covering Boston across channels.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/ren.png" alt="Lauren (Ren)" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Lauren (Ren)</div>
+              <div class="member-role">Creator, The Boston Calendar</div>
+              <p class="member-bio">New England native with roots in NH, Rhode Island, and now Boston. A digital marketing specialist turned content creator, Ren spotlights the best of the city, and is always on the hunt for the perfect latte.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/chloe.png" alt="Chloe Grant" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Chloe Grant</div>
+              <div class="member-role">Creator, filmbychloeg</div>
+              <p class="member-bio">Boston-based film photographer and Tufts grad student studying Urban & Environmental Policy. Originally from Burlington, VT, Chloe captures the everyday moments and cultural energy that make Boston's neighborhoods come alive.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/manuel.png" alt="Manuel" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Manuel</div>
+              <div class="member-role">Head of tech, Joyraft iOS app</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="images/jessica.jpg" alt="Jessica Nguyen" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Jessica Nguyen</div>
+              <div class="member-role">Manager, Joyraft DC</div>
+              <p class="member-bio">Insert 1-line bio here.</p>
             </div>
           </div>
 
@@ -152,10 +279,7 @@
     <div class="cta-strip">
       <p class="label" style="margin-bottom: 1rem;">Work with us</p>
       <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
-      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-        <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
-        <a href="team.html" class="btn btn-outline">Meet the team</a>
-      </div>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
     </div>
 
   </div><!-- /page -->
