@@ -12,105 +12,85 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* Full case study layout */
-    .case-study {
-      padding: 5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .case-study-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .case-study-inner.reverse {
-      grid-template-columns: 1.4fr 1fr;
-    }
-
-    .case-study-inner.reverse .case-media { order: -1; }
-
-    .case-meta { margin-bottom: 2rem; }
-
-    .case-section { margin-bottom: 1.75rem; }
-
-    .case-section h4 {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-
-    .case-section p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .case-impact-grid {
+    .cs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 2rem;
+      padding: 4rem 0;
     }
 
-    .case-impact-card {
-      background: var(--surface);
+    .cs-card {
+      display: flex;
+      flex-direction: column;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
     }
 
-    .case-impact-card .num {
+    .cs-card:hover { border-color: var(--border-2); }
+
+    .cs-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+    .cs-card-img .img-ph { height: 100%; border-radius: 0; margin: 0; }
+
+    .cs-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .cs-card-body h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cs-card-body p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cs-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .cs-stat .num {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       line-height: 1.2;
-      padding: 0.2em 0;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
-      letter-spacing: 0.02em;
     }
 
-    .case-impact-card .desc {
-      font-size: 0.78rem;
+    .cs-stat .lbl {
+      font-size: 0.7rem;
       color: var(--muted);
-      margin-top: 0.3rem;
-      line-height: 1.5;
+      margin-top: 0.2rem;
     }
 
-    .channels-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-
-    .channel-chip {
-      border: 1px solid var(--border-2);
-      border-radius: 100px;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.75rem;
+    .cs-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
       color: var(--muted);
+      margin-top: 0.5rem;
     }
 
     @media (max-width: 900px) {
-      .case-study-inner,
-      .case-study-inner.reverse {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .case-study-inner.reverse .case-media { order: 0; }
-      .case-impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -128,189 +108,88 @@
       </div>
     </div>
 
-    <!-- ── CASE STUDY 1: MBTA ─────────────── -->
-    <div id="mbta">
-      <div class="container">
-        <div class="case-study">
-          <div class="case-study-inner">
+    <!-- ── CASE STUDY GRID ───────────────── -->
+    <div class="container">
+      <div class="cs-grid">
 
-            <div class="case-content">
-              <div class="case-meta">
-                <span class="case-tag">Case study</span>
-                <h2 class="g" style="margin-top: 0.75rem; font-size: clamp(2rem, 4vw, 3.5rem);">MBTA commuter rail</h2>
-              </div>
-
-              <div class="case-section">
-                <h4>Challenge</h4>
-                <p>Increase ridership and educate Bostonians about destinations accessible by the commuter rail.</p>
-              </div>
-
-              <div class="case-section">
-                <h4>Strategy</h4>
-                <p>We positioned the commuter rail as the easiest way to reach beaches, festivals, foliage, and other New England experiences without a car, turning transit into a lifestyle story.</p>
-              </div>
-
-              <div class="case-section">
-                <h4>Channels</h4>
-                <div class="channels-list">
-                  <span class="channel-chip">Social</span>
-                  <span class="channel-chip">Email</span>
-                  <span class="channel-chip">Editorial</span>
-                  <span class="channel-chip">Push notifications</span>
-                  <span class="channel-chip">Native ads</span>
-                </div>
-              </div>
-
-              <div class="case-impact-grid">
-                <div class="case-impact-card">
-                  <div class="num">1.3m</div>
-                  <div class="desc">Total impressions</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">250k</div>
-                  <div class="desc">People reached across Greater Boston &amp; New England</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">2–3x</div>
-                  <div class="desc">Higher engagement &amp; CTR vs. industry benchmarks</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="case-media">
-              <div class="img-ph r-4-3" style="margin-bottom: 1rem;">Insert MBTA campaign hero graphic, reel screenshot or creative collage here<br>(4:3)</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div class="img-ph r-9-16">Insert MBTA Instagram Reel screenshot here<br>(9:16)</div>
-                <div class="img-ph r-9-16">Insert Joyraft "13 Beaches" roundup card here<br>(9:16)</div>
-              </div>
-            </div>
-
+        <a href="case-study-mbta.html" class="cs-card">
+          <div class="cs-card-img">
+            <div class="img-ph r-4-3">Insert MBTA campaign hero image here<br>(4:3)</div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── CASE STUDY 2: SILVER LINING ─────── -->
-    <div id="silver-lining" style="background: var(--surface);">
-      <div class="container">
-        <div class="case-study">
-          <div class="case-study-inner reverse">
-
-            <div class="case-content">
-              <div class="case-meta">
-                <span class="case-tag">Case study</span>
-                <h2 class="g" style="margin-top: 0.75rem; font-size: clamp(2rem, 4vw, 3.5rem);">Silver Lining Mentoring</h2>
+          <div class="cs-card-body">
+            <span class="case-tag">Case study</span>
+            <h3>MBTA commuter rail</h3>
+            <p>Turning transit into a lifestyle story to drive ridership across Greater Boston & New England.</p>
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="num">1.3m</div>
+                <div class="lbl">Impressions</div>
               </div>
-
-              <div class="case-section">
-                <h4>Challenge</h4>
-                <p>Increase awareness and recruit qualified volunteer mentors for youth in foster care.</p>
+              <div class="cs-stat">
+                <div class="num">2–3x</div>
+                <div class="lbl">vs. benchmarks</div>
               </div>
-
-              <div class="case-section">
-                <h4>Strategy</h4>
-                <p>We shared their story and mission in a clear, compelling way, highlighting the impact of mentorship and the urgent need for mentors across Greater Boston.</p>
-              </div>
-
-              <div class="case-section">
-                <h4>Channels</h4>
-                <div class="channels-list">
-                  <span class="channel-chip">Social</span>
-                  <span class="channel-chip">Email</span>
-                  <span class="channel-chip">Editorial</span>
-                  <span class="channel-chip">Push notifications</span>
-                  <span class="channel-chip">Native ads</span>
-                </div>
-              </div>
-
-              <div class="case-impact-grid">
-                <div class="case-impact-card">
-                  <div class="num">1m</div>
-                  <div class="desc">Total impressions</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">10x</div>
-                  <div class="desc">Increase in qualified mentor leads</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">19%</div>
-                  <div class="desc">Conversion from interest to application</div>
-                </div>
+              <div class="cs-stat">
+                <div class="num">250k</div>
+                <div class="lbl">People reached</div>
               </div>
             </div>
-
-            <div class="case-media">
-              <div class="img-ph r-4-3" style="margin-bottom: 1rem;">Insert Silver Lining Mentoring campaign hero graphic here<br>(4:3)</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div class="img-ph r-9-16">Insert Silver Lining social ad creative here<br>(9:16)</div>
-                <div class="img-ph r-9-16">Insert Silver Lining editorial email screenshot here<br>(9:16)</div>
-              </div>
-            </div>
-
+            <span class="cs-card-link">View case study →</span>
           </div>
-        </div>
-      </div>
-    </div>
+        </a>
 
-    <!-- ── CASE STUDY 3: BOSTON LANDING ────── -->
-    <div id="boston-landing">
-      <div class="container">
-        <div class="case-study" style="border-bottom: none;">
-          <div class="case-study-inner">
-
-            <div class="case-content">
-              <div class="case-meta">
-                <span class="case-tag">Case study</span>
-                <h2 class="g" style="margin-top: 0.75rem; font-size: clamp(2rem, 4vw, 3.5rem);">Boston Landing</h2>
-              </div>
-
-              <div class="case-section">
-                <h4>Challenge</h4>
-                <p>Increase awareness and drive foot traffic to Boston Landing events and neighborhood experiences.</p>
-              </div>
-
-              <div class="case-section">
-                <h4>Strategy</h4>
-                <p>We positioned Boston Landing as a go-to destination for dining, drinks, shopping, and entertainment, using its events to attract audiences and build long-term neighborhood affinity.</p>
-              </div>
-
-              <div class="case-section">
-                <h4>Channels</h4>
-                <div class="channels-list">
-                  <span class="channel-chip">Social</span>
-                  <span class="channel-chip">Email</span>
-                  <span class="channel-chip">Editorial</span>
-                  <span class="channel-chip">Push notifications</span>
-                  <span class="channel-chip">Native ads</span>
-                </div>
-              </div>
-
-              <div class="case-impact-grid">
-                <div class="case-impact-card">
-                  <div class="num">4.2m</div>
-                  <div class="desc">Total impressions</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">50%</div>
-                  <div class="desc">Lower cost per impression vs. Meta Ads</div>
-                </div>
-                <div class="case-impact-card">
-                  <div class="num">2.5x</div>
-                  <div class="desc">Higher click-through vs. industry average</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="case-media">
-              <div class="img-ph r-4-3" style="margin-bottom: 1rem;">Insert Boston Landing campaign hero graphic or Reel screenshot here<br>(4:3)</div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div class="img-ph r-9-16">Insert Boston Landing outdoor movies Reel here<br>(9:16)</div>
-                <div class="img-ph r-9-16">Insert Boston Landing editorial or native ad here<br>(9:16)</div>
-              </div>
-            </div>
-
+        <a href="case-study-silver-lining.html" class="cs-card">
+          <div class="cs-card-img">
+            <div class="img-ph r-4-3">Insert Silver Lining campaign hero image here<br>(4:3)</div>
           </div>
-        </div>
+          <div class="cs-card-body">
+            <span class="case-tag">Case study</span>
+            <h3>Silver Lining Mentoring</h3>
+            <p>Recruiting qualified volunteer mentors for youth in foster care through compelling storytelling.</p>
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="num">1m</div>
+                <div class="lbl">Impressions</div>
+              </div>
+              <div class="cs-stat">
+                <div class="num">10x</div>
+                <div class="lbl">Mentor leads</div>
+              </div>
+              <div class="cs-stat">
+                <div class="num">19%</div>
+                <div class="lbl">Conversion rate</div>
+              </div>
+            </div>
+            <span class="cs-card-link">View case study →</span>
+          </div>
+        </a>
+
+        <a href="case-study-boston-landing.html" class="cs-card">
+          <div class="cs-card-img">
+            <div class="img-ph r-4-3">Insert Boston Landing campaign hero image here<br>(4:3)</div>
+          </div>
+          <div class="cs-card-body">
+            <span class="case-tag">Case study</span>
+            <h3>Boston Landing</h3>
+            <p>Positioning Boston Landing as a go-to destination for dining, events, and neighborhood life.</p>
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="num">4.2m</div>
+                <div class="lbl">Impressions</div>
+              </div>
+              <div class="cs-stat">
+                <div class="num">50%</div>
+                <div class="lbl">Lower CPM</div>
+              </div>
+              <div class="cs-stat">
+                <div class="num">2.5x</div>
+                <div class="lbl">Higher CTR</div>
+              </div>
+            </div>
+            <span class="cs-card-link">View case study →</span>
+          </div>
+        </a>
+
       </div>
     </div>
 

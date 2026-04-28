@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBTA Commuter Rail | offfscript</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=27" />
+  <style>
+    .cs-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-back {
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .cs-back:hover { color: var(--text); }
+
+    .cs-topbar h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .cs-hero-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      overflow: hidden;
+    }
+
+    .cs-hero-img .img-ph {
+      height: 100%;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    .cs-body {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      align-items: start;
+      padding: 4rem 0;
+    }
+
+    .cs-text-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .cs-text-section h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-text-section p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .cs-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+
+    .cs-sidebar-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .cs-sidebar-section h3 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-stat-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-stat-row .big-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .cs-stat-row .lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .cs-results {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cs-results h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .cs-results p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .cs-img-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-bottom: 4rem;
+    }
+
+    .cs-img-grid .img-ph {
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .cs-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cs-sidebar { position: static; }
+      .cs-img-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <script src="nav.js?v=7"></script>
+
+  <div class="page">
+
+    <!-- ── TOP BAR ───────────────────────── -->
+    <div class="container">
+      <div class="cs-topbar">
+        <a href="case-studies.html" class="cs-back">← Case studies</a>
+        <h1>MBTA Commuter Rail</h1>
+      </div>
+    </div>
+
+    <!-- ── HERO IMAGE ────────────────────── -->
+    <div class="cs-hero-img">
+      <div class="img-ph" style="height:100%;border-radius:0;">Insert MBTA campaign hero image here (16:7)</div>
+    </div>
+
+    <!-- ── BODY ──────────────────────────── -->
+    <div class="container">
+      <div class="cs-body">
+
+        <div class="cs-left">
+          <div class="cs-text-section">
+            <h2>Inspiration &amp; Challenge</h2>
+            <p>Increase ridership and educate Bostonians about destinations accessible by the commuter rail. The MBTA needed to shift perception from a commuter utility to an experiential gateway across New England.</p>
+          </div>
+
+          <div class="cs-text-section">
+            <h2>Execution &amp; Creativity</h2>
+            <p>We positioned the commuter rail as the easiest way to reach beaches, festivals, foliage, and other New England experiences without a car, turning transit into a lifestyle story.</p>
+            <p>Using The Boston Calendar's editorial reach and Joyraft's experience-first audience, we crafted destination-led content across social, email, and native ads — showing audiences exactly where the train could take them and making it feel aspirational, not utilitarian.</p>
+          </div>
+        </div>
+
+        <div class="cs-sidebar">
+          <div class="cs-sidebar-section">
+            <h3>Facts &amp; Figures</h3>
+            <div class="cs-stat-row">
+              <div class="big-num">1.3m</div>
+              <div class="lbl">Total impressions</div>
+            </div>
+            <div class="cs-stat-row">
+              <div class="big-num">250k</div>
+              <div class="lbl">People reached across Greater Boston &amp; New England</div>
+            </div>
+            <div class="cs-stat-row">
+              <div class="big-num">2–3x</div>
+              <div class="lbl">Higher engagement &amp; CTR vs. industry benchmarks</div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-section">
+            <h3>Channels</h3>
+            <div class="cs-stat-row">
+              <div class="lbl">Social · Email · Editorial · Push notifications · Native ads</div>
+            </div>
+          </div>
+
+          <div class="cs-sidebar-section">
+            <h3>Markets</h3>
+            <div class="cs-stat-row">
+              <div class="lbl">Greater Boston &amp; New England</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── RESULTS ──────────────────────── -->
+      <div class="cs-results">
+        <h2>Results</h2>
+        <p>Insert results summary here — what changed, what the client said, any follow-on campaigns or long-term outcomes.</p>
+      </div>
+
+      <!-- ── IMAGE GRID ────────────────────── -->
+      <div class="cs-img-grid">
+        <div class="img-ph r-9-16">Insert creative 1<br>(9:16)</div>
+        <div class="img-ph r-9-16">Insert creative 2<br>(9:16)</div>
+        <div class="img-ph r-9-16">Insert creative 3<br>(9:16)</div>
+        <div class="img-ph r-9-16">Insert creative 4<br>(9:16)</div>
+      </div>
+    </div>
+
+    <!-- ── CTA ────────────────────────────── -->
+    <div class="cta-strip">
+      <p class="label" style="margin-bottom: 1rem;">Start a campaign</p>
+      <h2 class="g" style="margin-bottom: 1.5rem;">Ready to go offfscript?</h2>
+      <a href="get-in-touch.html" class="btn btn-primary">Get in touch</a>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>
