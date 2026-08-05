@@ -1,11 +1,11 @@
 /* nav.js — inject shared navigation */
 (function () {
   const pages = [
-    { label: 'Case studies',     href: 'case-studies.html' },
     { label: 'What we do',       href: 'what-we-do.html' },
     { label: 'Audience & reach', href: 'audience-reach.html' },
-    { label: 'About us',         href: 'our-story.html' },
+    { label: 'Case studies',     href: 'case-studies.html' },
     { label: 'Our products',     href: 'our-products.html' },
+    { label: 'About us',         href: 'our-story.html' },
     { label: 'Get in touch',     href: 'get-in-touch.html', cta: true },
   ];
 
