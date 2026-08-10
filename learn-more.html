@@ -16,6 +16,43 @@
       padding: 4rem 0;
     }
 
+    .contact-section {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid rgba(123, 43, 232, 0.35);
+    }
+
+    .contact-section-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-role { font-size: 0.78rem; color: var(--muted); }
+
+    .contact-email {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-2);
+      padding-bottom: 0.15rem;
+      transition: border-color 0.15s;
+      white-space: nowrap;
+    }
+    .contact-email:hover { border-color: var(--text); }
+
     .property-list {
       border-bottom: 1px solid var(--border);
     }
@@ -28,15 +65,6 @@
       border-top: 1px solid var(--border);
       align-items: start;
       text-decoration: none;
-    }
-
-    .contact-row {
-      border-top-color: rgba(123, 43, 232, 0.4);
-      background: rgba(123, 43, 232, 0.07);
-      padding-left: 1rem;
-      padding-right: 1rem;
-      margin-left: -1rem;
-      margin-right: -1rem;
     }
 
     .property-platform {
@@ -76,20 +104,9 @@
 
     a.property-row:hover .property-name { opacity: 0.65; }
 
-    .contact-email {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-2);
-      padding-bottom: 0.15rem;
-      transition: border-color 0.15s;
-    }
-    .contact-email:hover { border-color: var(--text); }
-
     @media (max-width: 768px) {
+      .contact-section-row { flex-direction: column; gap: 1rem; }
       .property-row { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.5rem 0; }
-      .contact-row { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
     }
   </style>
 </head>
@@ -111,18 +128,18 @@
     <div class="container">
       <div class="properties-section">
 
-        <div class="property-list">
-
-          <div class="property-row contact-row">
+        <div class="contact-section">
+          <p class="label" style="margin-bottom: 1rem; color: rgba(123,43,232,0.9);">Get in touch</p>
+          <div class="contact-section-row">
             <div>
-              <div class="property-platform">Get in touch</div>
-              <div class="property-name">Alaska Lam</div>
+              <div class="contact-name">Alaska Lam</div>
+              <div class="contact-role">Business Development, offfscript</div>
             </div>
-            <div>
-              <p class="property-desc">Business Development, offfscript</p>
-              <a href="mailto:alaska@thebostoncalendar.com" class="contact-email">alaska@thebostoncalendar.com ↗</a>
-            </div>
+            <a href="mailto:alaska@thebostoncalendar.com" class="contact-email">alaska@thebostoncalendar.com ↗</a>
           </div>
+        </div>
+
+        <div class="property-list">
 
           <a href="https://www.thebostoncalendar.com" target="_blank" rel="noopener" class="property-row">
             <div>
