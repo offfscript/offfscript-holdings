@@ -45,6 +45,7 @@
 
     .properties-wrap {
       max-width: 620px;
+      margin: 0 auto;
     }
 
     .properties-grid {
@@ -60,7 +61,7 @@
       background: var(--surface);
       padding: 1.25rem 1.75rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1.25rem;
       text-decoration: none;
       transition: background 0.15s;
@@ -68,6 +69,13 @@
     .property-card:hover { background: var(--surface-2); }
 
     .property-card-left { flex: 1; min-width: 0; }
+
+    .property-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 0.35rem;
+    }
 
     .property-platform {
       font-size: 0.6rem;
@@ -136,22 +144,16 @@
               <div class="property-card-left">
                 <div class="property-platform">Website</div>
                 <div class="property-name">The Boston Calendar</div>
+                <p class="property-desc">New England's go-to source for events, things to do, and local experiences. 250k+ monthly visitors.</p>
               </div>
               <span class="property-link">thebostoncalendar.com ↗</span>
-            </a>
-
-            <a href="https://apps.apple.com/us/app/joyraft-boston-experiences/id1600700683" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">iOS App</div>
-                <div class="property-name">Joyraft</div>
-              </div>
-              <span class="property-link">App Store ↗</span>
             </a>
 
             <a href="https://www.instagram.com/thebostoncal" target="_blank" rel="noopener" class="property-card">
               <div class="property-card-left">
                 <div class="property-platform">Instagram</div>
                 <div class="property-name">@thebostoncal</div>
+                <p class="property-desc">Viral content, local events, and 37m+ monthly views.</p>
               </div>
               <span class="property-link">instagram.com/thebostoncal ↗</span>
             </a>
@@ -160,14 +162,34 @@
               <div class="property-card-left">
                 <div class="property-platform">Facebook</div>
                 <div class="property-name">TBC on Facebook</div>
+                <p class="property-desc">Events, updates, and Boston life for a highly engaged local audience.</p>
               </div>
               <span class="property-link">facebook.com/thebostoncalendar ↗</span>
+            </a>
+
+            <a href="https://www.joyraft.com" target="_blank" rel="noopener" class="property-card">
+              <div class="property-card-left">
+                <div class="property-platform">Website</div>
+                <div class="property-name">Joyraft</div>
+                <p class="property-desc">Curated local experiences, date ideas, and adventures — in Boston and beyond.</p>
+              </div>
+              <span class="property-link">joyraft.com ↗</span>
+            </a>
+
+            <a href="https://apps.apple.com/us/app/joyraft-boston-experiences/id1600700683" target="_blank" rel="noopener" class="property-card">
+              <div class="property-card-left">
+                <div class="property-platform">iOS App</div>
+                <div class="property-name">Joyraft for iPhone</div>
+                <p class="property-desc">Boston's experience discovery app. 100k+ downloads, 4.9 stars, curated by local experts.</p>
+              </div>
+              <span class="property-link">App Store ↗</span>
             </a>
 
             <a href="https://www.instagram.com/joyraftdc" target="_blank" rel="noopener" class="property-card">
               <div class="property-card-left">
                 <div class="property-platform">Instagram</div>
                 <div class="property-name">@joyraftdc</div>
+                <p class="property-desc">40k+ followers and the best restaurants, events, and experiences in Washington, DC.</p>
               </div>
               <span class="property-link">instagram.com/joyraftdc ↗</span>
             </a>
