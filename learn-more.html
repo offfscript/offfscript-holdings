@@ -16,21 +16,65 @@
       padding: 4rem 0;
     }
 
-    .contact-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      padding: 1.5rem 1.75rem;
-      background: rgba(123, 43, 232, 0.12);
-      border: 1px solid rgba(123, 43, 232, 0.25);
-      border-radius: var(--radius) var(--radius) 0 0;
-      flex-wrap: wrap;
+    .property-list {
+      border-bottom: 1px solid var(--border);
     }
 
-    .contact-left { display: flex; flex-direction: column; gap: 0.2rem; }
-    .contact-name { font-size: 1rem; font-weight: 700; color: var(--text); }
-    .contact-role { font-size: 0.78rem; color: var(--muted); }
+    .property-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+      text-decoration: none;
+    }
+
+    .contact-row {
+      border-top-color: rgba(123, 43, 232, 0.4);
+      background: rgba(123, 43, 232, 0.07);
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+
+    .property-platform {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .property-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .property-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 480px;
+      margin-bottom: 0.75rem;
+    }
+
+    .property-link {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    a.property-row:hover .property-name { opacity: 0.65; }
 
     .contact-email {
       font-size: 0.88rem;
@@ -43,71 +87,9 @@
     }
     .contact-email:hover { border-color: var(--text); }
 
-    .properties-wrap {
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    .properties-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: var(--border);
-      border-radius: 0 0 var(--radius) var(--radius);
-      overflow: hidden;
-    }
-
-    .property-card {
-      background: var(--surface);
-      padding: 1.25rem 1.75rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .property-card:hover { background: var(--surface-2); }
-
-    .property-card-left { flex: 1; min-width: 0; }
-
-    .property-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.5;
-      margin-top: 0.35rem;
-    }
-
-    .property-platform {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .property-name {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.4rem;
-      line-height: 1.05;
-      color: var(--text);
-    }
-
-    .property-link {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-
     @media (max-width: 768px) {
-      .contact-row { flex-direction: column; align-items: flex-start; }
-      .property-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-      .property-link { align-self: flex-start; }
+      .property-row { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.5rem 0; }
+      .contact-row { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
     }
   </style>
 </head>
@@ -129,72 +111,85 @@
     <div class="container">
       <div class="properties-section">
 
-        <div class="properties-wrap">
-          <div class="contact-row">
-            <div class="contact-left">
-              <span class="contact-name">Alaska Lam</span>
-              <span class="contact-role">Business Development, offfscript</span>
+        <div class="property-list">
+
+          <div class="property-row contact-row">
+            <div>
+              <div class="property-platform">Get in touch</div>
+              <div class="property-name">Alaska Lam</div>
             </div>
-            <a href="mailto:alaska@thebostoncalendar.com" class="contact-email">alaska@thebostoncalendar.com ↗</a>
+            <div>
+              <p class="property-desc">Business Development, offfscript</p>
+              <a href="mailto:alaska@thebostoncalendar.com" class="contact-email">alaska@thebostoncalendar.com ↗</a>
+            </div>
           </div>
 
-          <div class="properties-grid">
-
-            <a href="https://www.thebostoncalendar.com" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">Website</div>
-                <div class="property-name">The Boston Calendar</div>
-                <p class="property-desc">New England's go-to source for events, things to do, and local experiences. 250k+ monthly visitors.</p>
-              </div>
+          <a href="https://www.thebostoncalendar.com" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">Website</div>
+              <div class="property-name">The Boston Calendar</div>
+            </div>
+            <div>
+              <p class="property-desc">New England's go-to source for events, things to do, and local experiences. 250k+ monthly visitors.</p>
               <span class="property-link">thebostoncalendar.com ↗</span>
-            </a>
+            </div>
+          </a>
 
-            <a href="https://www.instagram.com/thebostoncal" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">Instagram</div>
-                <div class="property-name">@thebostoncal</div>
-                <p class="property-desc">Viral content, local events, and 37m+ monthly views.</p>
-              </div>
+          <a href="https://www.instagram.com/thebostoncal" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">Instagram</div>
+              <div class="property-name">@thebostoncal</div>
+            </div>
+            <div>
+              <p class="property-desc">Viral content, local events, and 37m+ monthly views.</p>
               <span class="property-link">instagram.com/thebostoncal ↗</span>
-            </a>
+            </div>
+          </a>
 
-            <a href="https://www.facebook.com/thebostoncalendar" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">Facebook</div>
-                <div class="property-name">TBC on Facebook</div>
-                <p class="property-desc">Events, updates, and Boston life for a highly engaged local audience.</p>
-              </div>
+          <a href="https://www.facebook.com/thebostoncalendar" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">Facebook</div>
+              <div class="property-name">TBC on Facebook</div>
+            </div>
+            <div>
+              <p class="property-desc">Events, updates, and Boston life for a highly engaged local audience.</p>
               <span class="property-link">facebook.com/thebostoncalendar ↗</span>
-            </a>
+            </div>
+          </a>
 
-            <a href="https://www.joyraft.com" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">Website</div>
-                <div class="property-name">Joyraft</div>
-                <p class="property-desc">Curated local experiences, date ideas, and adventures — in Boston and beyond.</p>
-              </div>
+          <a href="https://www.joyraft.com" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">Website</div>
+              <div class="property-name">Joyraft</div>
+            </div>
+            <div>
+              <p class="property-desc">Curated local experiences, date ideas, and adventures — in Boston and beyond.</p>
               <span class="property-link">joyraft.com ↗</span>
-            </a>
+            </div>
+          </a>
 
-            <a href="https://apps.apple.com/us/app/joyraft-boston-experiences/id1600700683" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">iOS App</div>
-                <div class="property-name">Joyraft for iPhone</div>
-                <p class="property-desc">Boston's experience discovery app. 100k+ downloads, 4.9 stars, curated by local experts.</p>
-              </div>
+          <a href="https://apps.apple.com/us/app/joyraft-boston-experiences/id1600700683" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">iOS App</div>
+              <div class="property-name">Joyraft for iPhone</div>
+            </div>
+            <div>
+              <p class="property-desc">Boston's experience discovery app. 100k+ downloads, 4.9 stars, curated by local experts.</p>
               <span class="property-link">App Store ↗</span>
-            </a>
+            </div>
+          </a>
 
-            <a href="https://www.instagram.com/joyraftdc" target="_blank" rel="noopener" class="property-card">
-              <div class="property-card-left">
-                <div class="property-platform">Instagram</div>
-                <div class="property-name">@joyraftdc</div>
-                <p class="property-desc">40k+ followers and the best restaurants, events, and experiences in Washington, DC.</p>
-              </div>
+          <a href="https://www.instagram.com/joyraftdc" target="_blank" rel="noopener" class="property-row">
+            <div>
+              <div class="property-platform">Instagram</div>
+              <div class="property-name">@joyraftdc</div>
+            </div>
+            <div>
+              <p class="property-desc">40k+ followers and the best restaurants, events, and experiences in Washington, DC.</p>
               <span class="property-link">instagram.com/joyraftdc ↗</span>
-            </a>
+            </div>
+          </a>
 
-          </div>
         </div>
       </div>
     </div>
