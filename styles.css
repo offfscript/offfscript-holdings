@@ -51,7 +51,7 @@ button { cursor: pointer; font-family: inherit; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding: 0.4em 0;
+  padding: 0.4em 0.15em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
