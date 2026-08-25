@@ -10,145 +10,205 @@
     .cs-topbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 1.5rem 0;
+      padding: 1.25rem 0;
       border-bottom: 1px solid var(--border);
     }
 
     .cs-back {
-      position: absolute;
-      left: 0;
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--muted);
       text-decoration: none;
+      transition: color 0.15s;
     }
 
     .cs-back:hover { color: var(--text); }
 
-    .cs-topbar h1 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .cs-hero-img {
+    .cs-hero {
+      position: relative;
       width: 100%;
-      aspect-ratio: 16/7;
+      aspect-ratio: 16 / 7;
       overflow: hidden;
+      background: var(--surface);
     }
 
-    .cs-hero-img .img-ph {
+    .cs-hero-ph {
+      width: 100%;
       height: 100%;
-      border-radius: 0;
-      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface-2);
+    }
+
+    .cs-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+    }
+
+    .cs-hero-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 3rem;
+    }
+
+    .cs-hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+
+    .cs-hero-title h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      max-width: 700px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
     }
 
     .cs-body {
       display: grid;
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 300px;
       gap: 5rem;
       align-items: start;
-      padding: 4rem 0;
+      padding: 4rem 0 5rem;
     }
 
-    .cs-text-section {
-      margin-bottom: 2.5rem;
+    .cs-section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .cs-text-section h2 {
-      font-size: 0.7rem;
+    .cs-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cs-section-label {
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
-    .cs-text-section p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--muted);
+    .cs-section-subhead {
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 0.05em 0;
+      display: inline-block;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
+
+    .cs-section p {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+      max-width: 62ch;
+    }
+
+    .cs-section p:last-child { margin-bottom: 0; }
 
     .cs-sidebar {
       position: sticky;
       top: calc(var(--nav-h) + 2rem);
     }
 
-    .cs-sidebar-section {
+    .cs-client-logo {
+      width: 100px;
+      height: 64px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 2.5rem;
-    }
-
-    .cs-sidebar-section h3 {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      font-size: 0.7rem;
       color: var(--muted);
-      margin-bottom: 1.25rem;
+      text-align: center;
+      padding: 0.5rem;
     }
 
-    .cs-stat-row {
-      margin-bottom: 1.25rem;
+    .cs-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
     }
 
-    .cs-stat-row .big-num {
+    .cs-stat {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-stat-num {
       font-family: var(--font-display);
-      font-style: italic;
-      font-size: 2.5rem;
+      font-size: clamp(2.2rem, 4vw, 3rem);
       font-weight: 400;
-      color: var(--text);
+      letter-spacing: 0.01em;
       line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 0.05em 0.1em 0.05em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      display: inline-block;
+      margin-bottom: 0.4rem;
     }
 
-    .cs-stat-row .lbl {
+    .cs-stat-label {
       font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .cs-results {
-      padding: 4rem 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .cs-results h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .cs-results p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--muted);
+      line-height: 1.4;
     }
 
     .cs-img-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      padding-bottom: 4rem;
+      border-top: 1px solid var(--border);
+      padding-top: 4rem;
+      padding-bottom: 5rem;
     }
 
     .cs-img-grid .img-ph { margin: 0; }
 
-    @media (max-width: 900px) {
-      .cs-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    @media (max-width: 960px) {
+      .cs-body { grid-template-columns: 1fr; gap: 3rem; }
       .cs-sidebar { position: static; }
-      .cs-img-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; border-top: none; }
+      .cs-stat { border: none; padding: 0; flex: 1 1 120px; }
+      .cs-hero-title { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .cs-img-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -161,13 +221,17 @@
     <div class="container">
       <div class="cs-topbar">
         <a href="case-studies.html" class="cs-back">← Case studies</a>
-        <h1>Silver Lining Mentoring</h1>
       </div>
     </div>
 
-    <!-- ── HERO IMAGE ────────────────────── -->
-    <div class="cs-hero-img">
-      <div class="img-ph" style="height:100%;border-radius:0;">Insert Silver Lining campaign hero image here (16:7)</div>
+    <!-- ── HERO ─────────────────────────── -->
+    <div class="cs-hero">
+      <div class="cs-hero-ph">Insert Silver Lining Mentoring campaign hero image (16:7)</div>
+      <div class="cs-hero-overlay"></div>
+      <div class="cs-hero-title">
+        <div class="cs-hero-eyebrow">Case Study · Silver Lining Mentoring</div>
+        <h1>10x More Mentors. Same Mission.</h1>
+      </div>
     </div>
 
     <!-- ── BODY ──────────────────────────── -->
@@ -175,64 +239,68 @@
       <div class="cs-body">
 
         <div class="cs-left">
-          <div class="cs-text-section">
-            <h2>Inspiration &amp; Challenge</h2>
-            <p>Silver Lining Mentoring needed to increase awareness and recruit qualified volunteer mentors for youth in foster care across Greater Boston, a cause that requires trust, empathy, and the right audience.</p>
+
+          <div class="cs-section">
+            <div class="cs-section-label">Challenge</div>
+            <div class="cs-section-subhead">Finding the right people for the hardest kind of commitment</div>
+            <p>Silver Lining Mentoring pairs volunteer mentors with youth in foster care across Greater Boston. Their mission is urgent and the need is real — but recruiting qualified, committed mentors requires reaching an audience that's both willing and ready to show up consistently for a kid.</p>
+            <p>Generic awareness campaigns weren't working. They needed to reach the right people with the right message at the moment they were open to it.</p>
           </div>
 
-          <div class="cs-text-section">
-            <h2>Execution &amp; Creativity</h2>
-            <p>We shared their story and mission in a clear, compelling way, highlighting the impact of mentorship and the urgent need for mentors across Greater Boston.</p>
-            <p>By leading with human stories and pairing them with direct calls to action across editorial, email, and social, we created a campaign that felt personal, not just promotional. The result was a dramatic lift in qualified applicants willing to commit to the program.</p>
+          <div class="cs-section">
+            <div class="cs-section-label">Solution</div>
+            <div class="cs-section-subhead">Human stories, direct calls to action, trusted channels</div>
+            <p>We led with the people, not the program. Content centered on the real impact of mentorship — specific, honest, and personal — placed inside editorial and email contexts where our audience was already in a giving, community-minded headspace.</p>
+            <p>By pairing storytelling with frictionless calls to action and distributing across Silver Lining's most relevant audience segments, we made it easy for the right people to take the first step.</p>
           </div>
+
+          <div class="cs-section">
+            <div class="cs-section-label">Impact</div>
+            <div class="cs-section-subhead">1 million impressions. 10x qualified leads. 19% conversion.</div>
+            <p>The campaign drove 1 million total impressions and a tenfold increase in qualified mentor leads. Of those who expressed interest, 19% completed a full application — a conversion rate that reflected not just reach, but fit.</p>
+            <p>Silver Lining didn't just get more applicants. They got better ones.</p>
+          </div>
+
         </div>
 
         <div class="cs-sidebar">
-          <div class="cs-sidebar-section">
-            <h3>Facts &amp; Figures</h3>
-            <div class="cs-stat-row">
-              <div class="big-num">1m</div>
-              <div class="lbl">Total impressions</div>
+
+          <div class="cs-client-logo">Silver Lining Mentoring logo</div>
+
+          <div class="cs-stats">
+            <div class="cs-stat">
+              <div class="cs-stat-num">1m</div>
+              <div class="cs-stat-label">Total impressions</div>
             </div>
-            <div class="cs-stat-row">
-              <div class="big-num">10x</div>
-              <div class="lbl">Increase in qualified mentor leads</div>
+            <div class="cs-stat">
+              <div class="cs-stat-num">10x</div>
+              <div class="cs-stat-label">Increase in qualified mentor leads</div>
             </div>
-            <div class="cs-stat-row">
-              <div class="big-num">19%</div>
-              <div class="lbl">Conversion from interest to application</div>
+            <div class="cs-stat">
+              <div class="cs-stat-num">19%</div>
+              <div class="cs-stat-label">Conversion from interest to application</div>
             </div>
           </div>
 
-          <div class="cs-sidebar-section">
-            <h3>Channels</h3>
-            <div class="cs-stat-row">
-              <div class="lbl">Social · Email · Editorial · Push notifications · Native ads</div>
-            </div>
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">Channels</div>
+            <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.8;">Editorial · Email · Social · Push notifications · Native ads</div>
           </div>
 
-          <div class="cs-sidebar-section">
-            <h3>Markets</h3>
-            <div class="cs-stat-row">
-              <div class="lbl">Greater Boston</div>
-            </div>
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">Market</div>
+            <div style="font-size: 0.82rem; color: var(--muted);">Greater Boston</div>
           </div>
+
         </div>
-
       </div>
 
-      <!-- ── RESULTS ──────────────────────── -->
-      <div class="cs-results">
-        <h2>Results</h2>
-        <p>Insert results summary here: what changed, what the client said, any follow-on campaigns or long-term outcomes.</p>
-      </div>
-
-      <!-- ── IMAGE GRID ────────────────────── -->
+      <!-- ── IMAGE GRID ──────────────────── -->
       <div class="cs-img-grid">
-        <div class="img-ph r-9-16">Insert creative 1<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 2<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 3<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 4<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 1<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 2<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 3<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 4<br>(9:16)</div>
       </div>
     </div>
 
