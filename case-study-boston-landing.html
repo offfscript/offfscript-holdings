@@ -7,142 +7,222 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css?v=27" />
   <style>
+    /* ── Top bar ── */
     .cs-topbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 1.5rem 0;
+      padding: 1.25rem 0;
       border-bottom: 1px solid var(--border);
     }
 
     .cs-back {
-      position: absolute;
-      left: 0;
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--muted);
       text-decoration: none;
+      transition: color 0.15s;
     }
 
     .cs-back:hover { color: var(--text); }
 
-    .cs-topbar h1 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .cs-hero-img {
+    /* ── Hero ── */
+    .cs-hero {
+      position: relative;
       width: 100%;
-      aspect-ratio: 16/7;
+      aspect-ratio: 16 / 7;
       overflow: hidden;
+      background: var(--surface);
     }
 
+    .cs-hero-img-inner {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* placeholder version */
+    .cs-hero-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--surface-2);
+    }
+
+    .cs-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+    }
+
+    .cs-hero-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 3rem;
+    }
+
+    .cs-hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+
+    .cs-hero-title h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      max-width: 700px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+
+    /* ── Body layout ── */
     .cs-body {
       display: grid;
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 300px;
       gap: 5rem;
       align-items: start;
-      padding: 4rem 0;
+      padding: 4rem 0 5rem;
     }
 
-    .cs-text-section {
-      margin-bottom: 2.5rem;
+    /* ── Left: sections ── */
+    .cs-section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .cs-text-section h2 {
-      font-size: 0.7rem;
+    .cs-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cs-section-label {
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
-    .cs-text-section p {
-      font-size: 0.95rem;
-      line-height: 1.8;
+    .cs-section-subhead {
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 0.05em 0;
+      display: inline-block;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .cs-section p {
+      font-size: 0.93rem;
+      line-height: 1.85;
       color: var(--muted);
+      margin-bottom: 0.85rem;
+      max-width: 62ch;
     }
 
+    .cs-section p:last-child { margin-bottom: 0; }
+
+    /* ── Right: sidebar ── */
     .cs-sidebar {
       position: sticky;
       top: calc(var(--nav-h) + 2rem);
     }
 
-    .cs-sidebar-section {
+    .cs-client-logo {
+      width: 100px;
+      height: 64px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 2.5rem;
-    }
-
-    .cs-sidebar-section h3 {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      font-size: 0.7rem;
       color: var(--muted);
-      margin-bottom: 1.25rem;
+      text-align: center;
+      padding: 0.5rem;
     }
 
-    .cs-stat-row {
-      margin-bottom: 1.25rem;
+    .cs-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
     }
 
-    .cs-stat-row .big-num {
+    .cs-stat {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-stat-num {
       font-family: var(--font-display);
-      font-style: italic;
-      font-size: 2.5rem;
+      font-size: clamp(2.2rem, 4vw, 3rem);
       font-weight: 400;
-      color: var(--text);
+      letter-spacing: 0.01em;
       line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 0.05em 0.1em 0.05em 0;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      display: inline-block;
+      margin-bottom: 0.4rem;
     }
 
-    .cs-stat-row .lbl {
+    .cs-stat-label {
       font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 0.2rem;
+      line-height: 1.4;
     }
 
-    .cs-results {
-      padding: 4rem 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .cs-results h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .cs-results p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--muted);
-    }
-
+    /* ── Image grid ── */
     .cs-img-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      padding-bottom: 4rem;
+      padding: 0 0 5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 4rem;
     }
 
     .cs-img-grid .img-ph { margin: 0; }
 
-    @media (max-width: 900px) {
-      .cs-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    @media (max-width: 960px) {
+      .cs-body { grid-template-columns: 1fr; gap: 3rem; }
       .cs-sidebar { position: static; }
-      .cs-img-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; border-top: none; }
+      .cs-stat { border: none; padding: 0; flex: 1 1 120px; }
+      .cs-hero-title { padding: 2rem 1.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .cs-img-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -155,78 +235,92 @@
     <div class="container">
       <div class="cs-topbar">
         <a href="case-studies.html" class="cs-back">← Case studies</a>
-        <h1>Boston Landing</h1>
       </div>
     </div>
 
-    <!-- ── HERO IMAGE ────────────────────── -->
-    <div class="cs-hero-img">
-      <div class="img-ph" style="height:100%;border-radius:0;">Insert Boston Landing campaign hero image here (16:7)</div>
+    <!-- ── HERO ─────────────────────────── -->
+    <div class="cs-hero">
+      <div class="cs-hero-ph">Insert Boston Landing campaign hero image (16:7)</div>
+      <div class="cs-hero-overlay"></div>
+      <div class="cs-hero-title">
+        <div class="cs-hero-eyebrow">Case Study · Boston Landing</div>
+        <h1>Putting Boston Landing on the Map</h1>
+      </div>
     </div>
 
     <!-- ── BODY ──────────────────────────── -->
     <div class="container">
       <div class="cs-body">
 
+        <!-- Left: narrative -->
         <div class="cs-left">
-          <div class="cs-text-section">
-            <h2>Inspiration &amp; Challenge</h2>
-            <p>Boston Landing needed to increase awareness and drive foot traffic to its events and neighborhood experiences, competing for attention in a city full of options without a widely recognized brand identity.</p>
+
+          <div class="cs-section">
+            <div class="cs-section-label">Challenge</div>
+            <div class="cs-section-subhead">Building a neighborhood destination from the ground up</div>
+            <p>Boston Landing had the amenities: restaurants, retail, a hotel, the Warrior Ice Arena, and a steady calendar of events. What it didn't have was top-of-mind awareness among the Greater Boston audience most likely to visit.</p>
+            <p>Competing against established neighborhoods with decades of brand equity, Boston Landing needed to consistently show up where Bostonians were already deciding what to do and where to go.</p>
           </div>
 
-          <div class="cs-text-section">
-            <h2>Execution &amp; Creativity</h2>
-            <p>We positioned Boston Landing as a go-to destination for dining, drinks, shopping, and entertainment, using its events to attract audiences and build long-term neighborhood affinity.</p>
-            <p>Leveraging The Boston Calendar's event-focused audience and multi-channel reach, we created a sustained presence that consistently surfaced Boston Landing across the moments when people were deciding what to do, turning event awareness into neighborhood loyalty.</p>
+          <div class="cs-section">
+            <div class="cs-section-label">Solution</div>
+            <div class="cs-section-subhead">Always-on presence across the moments that matter</div>
+            <p>We embedded Boston Landing into the discovery flow of New England's most engaged local audience. Using The Boston Calendar's event-first editorial, social channels, email, and native placements, we made Boston Landing a recurring presence in the weekly and weekend planning moments when people are most receptive.</p>
+            <p>Campaigns were built around Boston Landing's event calendar, driving awareness of specific activations while building cumulative neighborhood familiarity. Every touchpoint was tracked to click and conversion, not just impression.</p>
           </div>
+
+          <div class="cs-section">
+            <div class="cs-section-label">Impact</div>
+            <div class="cs-section-subhead">Sustained reach that compounded over time</div>
+            <p>Over the course of the campaign, Boston Landing reached millions of engaged New England consumers across editorial, social, email, and push. Cost efficiency outperformed paid social benchmarks, and click-through rates consistently exceeded industry averages.</p>
+            <p>Most importantly: Boston Landing became a name people recognized and returned to, not just a venue they clicked past once.</p>
+          </div>
+
         </div>
 
+        <!-- Right: sidebar stats -->
         <div class="cs-sidebar">
-          <div class="cs-sidebar-section">
-            <h3>Facts &amp; Figures</h3>
-            <div class="cs-stat-row">
-              <div class="big-num">4.2m</div>
-              <div class="lbl">Total impressions</div>
+
+          <div class="cs-client-logo">Boston Landing logo</div>
+
+          <div class="cs-stats">
+            <div class="cs-stat">
+              <div class="cs-stat-num">xx</div>
+              <div class="cs-stat-label">Total impressions</div>
             </div>
-            <div class="cs-stat-row">
-              <div class="big-num">50%</div>
-              <div class="lbl">Lower cost per impression vs. Meta Ads</div>
+            <div class="cs-stat">
+              <div class="cs-stat-num">xx%</div>
+              <div class="cs-stat-label">Lower cost per impression vs. paid social</div>
             </div>
-            <div class="cs-stat-row">
-              <div class="big-num">2.5x</div>
-              <div class="lbl">Higher click-through vs. industry average</div>
+            <div class="cs-stat">
+              <div class="cs-stat-num">xx</div>
+              <div class="cs-stat-label">Clicks to Boston Landing content</div>
+            </div>
+            <div class="cs-stat">
+              <div class="cs-stat-num">xx</div>
+              <div class="cs-stat-label">Campaign touchpoints</div>
             </div>
           </div>
 
-          <div class="cs-sidebar-section">
-            <h3>Channels</h3>
-            <div class="cs-stat-row">
-              <div class="lbl">Social · Email · Editorial · Push notifications · Native ads</div>
-            </div>
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">Channels</div>
+            <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.8;">Editorial · Email · Social · Push notifications · Native ads</div>
           </div>
 
-          <div class="cs-sidebar-section">
-            <h3>Markets</h3>
-            <div class="cs-stat-row">
-              <div class="lbl">Boston</div>
-            </div>
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">Market</div>
+            <div style="font-size: 0.82rem; color: var(--muted);">Greater Boston</div>
           </div>
+
         </div>
-
       </div>
 
-      <!-- ── RESULTS ──────────────────────── -->
-      <div class="cs-results">
-        <h2>Results</h2>
-        <p>Insert results summary here: what changed, what the client said, any follow-on campaigns or long-term outcomes.</p>
-      </div>
-
-      <!-- ── IMAGE GRID ────────────────────── -->
+      <!-- ── IMAGE GRID ──────────────────── -->
       <div class="cs-img-grid">
-        <div class="img-ph r-9-16">Insert creative 1<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 2<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 3<br>(9:16)</div>
-        <div class="img-ph r-9-16">Insert creative 4<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 1<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 2<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 3<br>(9:16)</div>
+        <div class="img-ph r-9-16">Creative 4<br>(9:16)</div>
       </div>
     </div>
 
