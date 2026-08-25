@@ -60,38 +60,42 @@
 
     .cs-hero-frames {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch;
+      gap: 1rem;
     }
 
     .cs-frame {
+      flex: 1;
       aspect-ratio: 9 / 16;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.72rem;
       color: var(--muted);
       text-align: center;
-      flex-shrink: 0;
+      overflow: hidden;
+      min-width: 0;
     }
 
-    .cs-frame-center {
-      height: clamp(260px, 32vw, 400px);
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    /* Mobile: snap carousel */
+    @media (max-width: 640px) {
+      .cs-hero-frames {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+      }
+      .cs-hero-frames::-webkit-scrollbar { display: none; }
+      .cs-frame {
+        flex: 0 0 84%;
+        scroll-snap-align: start;
+      }
     }
-
-    .cs-frame-side {
-      height: clamp(200px, 25vw, 310px);
-      z-index: 1;
-    }
-
-    .cs-frame-side:first-child { margin-right: -28px; }
-    .cs-frame-side:last-child  { margin-left:  -28px; }
 
     /* ── Body layout ── */
     .cs-body {
@@ -244,12 +248,14 @@
     <div class="cs-hero">
       <div class="container">
         <div class="cs-hero-frames">
-          <div class="cs-frame cs-frame-side">Creative 1<br>(9:16)</div>
+          <div class="cs-frame cs-frame-side" style="padding:0;overflow:hidden;">
+            <video src="images/SATC_BL.mov" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          </div>
           <div class="cs-frame cs-frame-center" style="padding:0;overflow:hidden;">
             <video src="images/movie_BL.mov" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
           </div>
           <div class="cs-frame cs-frame-side" style="padding:0;overflow:hidden;">
-            <video src="images/SATC_BL.mov" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+            <img src="images/here.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
         </div>
         <div class="cs-hero-title">
