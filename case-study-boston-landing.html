@@ -60,13 +60,17 @@
 
     .cs-hero-frames {
       display: flex;
-      align-items: stretch;
+      justify-content: center;
+      align-items: center;
       gap: 1rem;
+      height: clamp(240px, 42vh, 420px);
     }
 
     .cs-frame {
-      flex: 1;
+      height: 100%;
+      width: auto;
       aspect-ratio: 9 / 16;
+      flex: none;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -77,12 +81,13 @@
       color: var(--muted);
       text-align: center;
       overflow: hidden;
-      min-width: 0;
     }
 
     /* Mobile: snap carousel */
     @media (max-width: 640px) {
       .cs-hero-frames {
+        height: auto;
+        justify-content: flex-start;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
@@ -92,7 +97,10 @@
       }
       .cs-hero-frames::-webkit-scrollbar { display: none; }
       .cs-frame {
+        height: auto;
+        width: 84%;
         flex: 0 0 84%;
+        aspect-ratio: 9 / 16;
         scroll-snap-align: start;
       }
     }
